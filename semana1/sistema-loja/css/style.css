@@ -143,3 +143,50 @@ li{
     list-style-type: none;
 }
 
+/*adicionar produto*/
+
+.container{
+    text-align: center;
+}
+
+.container > *{ 
+    margin: 0 auto;
+    display: inline-block;
+}
+
+form{
+    text-align: left;
+    font-family: 'Roboto';
+    font-size: 13px;
+    color: #727272;
+    position: absolute;
+    padding-left: 15px;
+}
+
+form label{
+    line-height: 22px;
+}
+
+form input{
+    box-sizing: border-box;
+    width: 285px;
+    margin-bottom: 20px;
+}
+
+#descricao{
+    height: 121px;
+}
+
+form button{
+    width: 142px;
+    height: 39px;
+    font-family: 'Roboto';
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #FC9722;
+    border-radius: 20px;
+    border: none;
+    margin-left: 70px;
+    margin-top: 34px;;
+}
