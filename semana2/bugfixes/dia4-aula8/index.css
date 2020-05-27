@@ -25,16 +25,8 @@ button:focus {
     color: white;
 }
 
-img {
-    width: 100px;
-}
-
 div>p:first-child {
     display: inline;
-}
-
-div img {
-    background: black;
 }
 
 #container-para-comprar a{
@@ -111,6 +103,7 @@ div:last-child {
 table {
     width: 60%;
     margin: 0 auto;
+    text-align: center;
 }
 
 table tr td img{
