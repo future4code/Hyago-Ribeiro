@@ -113,6 +113,10 @@ table {
     margin: 0 auto;
 }
 
+table tr td img{
+    width: 70px;
+}
+
 td button {
     background-color: #fadf63;
     width: 150px;
