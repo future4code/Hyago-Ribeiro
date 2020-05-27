@@ -49,7 +49,7 @@ div img {
     font-size: 20px;
     color: white;
     display: block;
-    margin: 10px auto;
+    margin: 100px auto;
 }
 
 .botao-amarelo:hover {
@@ -79,6 +79,11 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+}
+
+#container-de-descricao p{
+    padding-top: 100px;
+    display: block;
 }
 
 #container-para-comprar {
