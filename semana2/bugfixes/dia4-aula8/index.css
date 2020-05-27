@@ -130,6 +130,13 @@ td button:hover{
     height: 100px;
 }
 
+.botao-voltar{
+    text-align: center;
+}
+
+.botao-voltar button{
+    margin-top: 150px;
+}
 
 #back-button {
     background-color: white;
