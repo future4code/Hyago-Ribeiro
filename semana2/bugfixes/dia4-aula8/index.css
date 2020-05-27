@@ -66,6 +66,12 @@ div>p:first-child {
   *  ESTILOS HOME 
   *
   **/
+
+li{
+    width: 250px;
+    margin: 0 auto;
+}
+
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
