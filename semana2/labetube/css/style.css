@@ -14,6 +14,11 @@ header{
     color: #fff;
 }
 
+header a{
+    text-decoration: none;
+    color: #fff;
+}
+
 form>input{
     padding: 5px 0;
 }
@@ -48,7 +53,8 @@ form>button{
 }
 
 footer{
-    background-color: #cccccc;
+    background-color: #EF843A;
+    color: #fff;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -56,20 +62,66 @@ footer{
     margin-top: 30px;
 }
 
+.comum img:hover{
+    filter: blur(1.5px);
+}
+
 /*Video01*/
 
 .video-container{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    width: 100%;
+    display: block;
+    text-align: center;
 }
 
 .video-container>h1{
-    padding: 40px 0 30px;
+    padding: 30px 0 30px;
 }
 
 video{
     width: 90%;
 }
+
+nav{
+    font-family: 'Roboto';
+    margin-top: 15px;
+    margin-left: 5%;
+}
+
+nav>a{
+    color: #808080;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #EF843A;
+}
+
+/*mobile home*/
+@media (max-width: 600px){
+    .comum{
+        width: 100%;
+    }
+
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8px;
+    }
+
+    .rodape-video{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    /*mobile videos*/
+
+    video{
+        width: 100%;
+    }
+
+}
+
