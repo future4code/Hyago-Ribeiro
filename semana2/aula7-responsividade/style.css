@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#header{
+    height: 100px;
+    background-color: #FF0000;
+}
+
+body>.container{
+    margin: 0 auto;
+}
+
+.container{
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.comum{
+    border: 1px solid #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.item1, .item4{
+    background-color: #1A00FF;
+    width: 30%;
+    height: 100px;
+}
+
+.item2, .item5{
+    background-color: #FFFE03;
+    width: 30%;
+    height: 100px;
+}
+
+.item3, .item6{
+    background-color: #027402;
+    width: 30%;
+    height: 100px;
+}
+
+.item7, .item8{
+    background-color: #000;
+    width: 48%;
+    height: 450px;
+}
+
+.item9, .item10, .item11{
+    width: 30%;
+    background-color: #fff;
+    height: 100px;
+    color: #000;
+}
+
+/*media queries*/
+
+@media (max-width: 900px){
+    
+    .item1, .item4{
+        width: 48%;
+    }
+
+    .item2, .item5{
+        width: 48%;
+    }
+    
+    .item3, .item6{
+        width: 100%;
+    }
+
+    .item9, .item10{
+        width: 48%;
+    }
+
+    .item11{
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px){
+    .comum{
+        width: 100%;
+    }
+}
