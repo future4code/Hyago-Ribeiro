@@ -92,7 +92,7 @@ if(valor1 > valor2 && valor2 > valor3){
 
 
 
-
+//https://drive.google.com/file/d/1fE0QmMqoDnmIFszrkAPG2NawfPq-S9lX/view?usp=sharing
 let animal = prompt("Digite um animal")
 let vertebrado = prompt("Ele é vertebrado?")
 
