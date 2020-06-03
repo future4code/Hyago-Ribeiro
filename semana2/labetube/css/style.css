@@ -1,0 +1,127 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+header{
+    background-color: #EF843A;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 120px;
+    color: #fff;
+}
+
+header a{
+    text-decoration: none;
+    color: #fff;
+}
+
+form>input{
+    padding: 5px 0;
+}
+
+form>button{
+    padding: 6px 15px;
+    border: none;
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: #EF843A;
+    background-color: #fff;
+}
+
+#videos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titulo{
+    font-size: 1.20em;
+    font-weight: 700;
+}
+
+.comum img{
+    width: 100%;
+}
+
+.comum{
+    width: 20%;
+    margin: 40px 10px 10px;
+}
+
+footer{
+    background-color: #EF843A;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.comum img:hover{
+    filter: blur(1.5px);
+}
+
+/*Video01*/
+
+.video-container{
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.video-container>h1{
+    padding: 30px 0 30px;
+}
+
+video{
+    width: 90%;
+}
+
+nav{
+    font-family: 'Roboto';
+    margin-top: 15px;
+    margin-left: 5%;
+}
+
+nav>a{
+    color: #808080;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #EF843A;
+}
+
+/*mobile home*/
+@media (max-width: 600px){
+    .comum{
+        width: 100%;
+    }
+
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8px;
+    }
+
+    .rodape-video{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    /*mobile videos*/
+
+    video{
+        width: 100%;
+    }
+
+}
+
