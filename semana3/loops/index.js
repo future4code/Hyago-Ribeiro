@@ -71,6 +71,8 @@
 
 //DESAFIO 2
 
+
+
 let numeroEscolhido = prompt("Escolha um número de 1 - 100")
 console.log("Vamos jogar!")
 let bananinha = true
@@ -82,8 +84,11 @@ while(bananinha){
         console.log("o número digitado foi: " + escolhaUmNumero)
         console.log("Acertou!")
         bananinha = false
-    }else{
+    }else if(escolhaUmNumero > numeroEscolhido){
         console.log("o número digitado foi: " + escolhaUmNumero)
-        console.log("Errrrrrou!")
+        console.log("Errrrrrou, é menor!")
+    } else{
+        console.log("o número digitado foi: " + escolhaUmNumero)
+        console.log("Errrrrrou, é maior!")
     }
 }
