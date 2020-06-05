@@ -12,20 +12,24 @@
  */
 
 
-const max_rodadas = 2
+const rodadaInicial = 2
 const venceu = 21
 console.log("Bem vindo ao jogo de Blackjack!")
 let pergunta = confirm("Quer iniciar uma nova partida?")
-let computador = []
-let usuario = []
+let computador = [compararCarta(), comprarCarta()]
+let usuario = [compararCarta(), comprarCarta()]
 let continuar = true
 let total1 = 0
 let total2 = 0
 
  if(pergunta === true){
     //usuário
+      //usar while no nossoJogo
+      //focar na funcionalidade para que o usuário possa jogar o quanto desejar
+      //o jogo só acaba quando o usuário deseja sair do jogo
+      //
 
-         for(let i = 0; i < max_rodadas; i++){
+         while(pergunta){
              
             if(total1 <= venceu){
 
@@ -37,21 +41,20 @@ let total2 = 0
 
                total2 = total2 + usuario[i].valor
                
-               console.log(computador[i].texto)
-               console.log(usuario[i].texto)
-               console.log(total1)
-               console.log(total2)
               }
-
+              
          }
+   
+         console.log(computador[0].texto + " " + computador[1].texto)
+         console.log(usuario[0].texto)
+         console.log(usuario[1].texto)
+         console.log(total1)
+         console.log(total2)
          
          
          // computador.push(comprarCarta())
          // total1 += computador
          // console.log(total1)
-      
-
-
 
 
  }
@@ -67,14 +70,14 @@ let total2 = 0
 //   const carta3 = comprarCarta()
 //   const carta4 = comprarCarta()
 
-//   while(carta === "A" && carta2 === "A" || carta3 === "A" && carta4 === "A"){
+//   while(carta.valor === 11 && carta2.valor === 11 || carta3.valor === 11 && carta4.valor === 11){
 //      //usuário
-//          const carta = comprarCarta()
-//          const carta2 = comprarCarta()
+//          carta = comprarCarta()
+//          carta2 = comprarCarta()
 
 //          //computador
-//          const carta3 = comprarCarta()
-//          const carta4 = comprarCarta()
+//          carta3 = comprarCarta()
+//          carta4 = comprarCarta()
 //          console.log("não podem ser iguais")
 //   }
 
