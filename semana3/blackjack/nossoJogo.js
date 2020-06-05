@@ -32,7 +32,9 @@ let pergunta = confirm("Quer iniciar uma nova partida?")
       console.log(`Usuário - cartas: ${carta.texto} ${carta2.texto} - pontuação ${soma1}`)
       console.log(`Computador - cartas: ${carta3.texto} ${carta4.texto} - pontuação ${soma2}`)
       
-      if(soma1 > soma2){
+      if(soma1 === soma2 && soma1 <= 21 && soma2 <= 21){
+         console.log("Empate")
+      }else if(soma1 > soma2){
          console.log("Usuário ganhou!")
 
       } else {
