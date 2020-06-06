@@ -38,8 +38,9 @@ let total2 = 0
       while(pergunta){
 
          if(total1 <= venceu){
-            ultimoUsuario = usuario[usuario.length -1]
             usuario.push(comprarCarta())
+
+            ultimoUsuario = usuario[usuario.length -1]
 
             total1 = total1 + ultimoUsuario.valor
             
