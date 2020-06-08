@@ -22,17 +22,31 @@ let total2 = 0
 
 //while porque precisa repetir e dar novos valores acaso o usuário queira jogar novamente
  while(pergunta){
-//declaração iniciao de cada jogador
+   
+   //declaração iniciao de cada jogador
    let computador = [comprarCarta(), comprarCarta()]
    let usuario = [comprarCarta(), comprarCarta()]
 
-   console.log(usuario[0].valor, usuario[1].valor)
-//soma do usuario
+   while(computador[0].valor === 11 && computador[1].valor === 11 || usuario[0].valor === 11 && usuario[1].valor === 11){
+
+      computador = [comprarCarta(), comprarCarta()]
+      usuario = [comprarCarta(), comprarCarta()]
+
+   }
+
+   //soma do usuario
    total1 =  usuario[0].valor + usuario[1].valor
 
-   console.log(total1)
+//soma do computador
+   total2 = computador[0].valor + computador[1].valor
 
-   pergunta = confirm("Quer comprar mais uma carta?")
+   console.log(`Usuário - cartas: ${usuario[0].texto} ${usuario[1].texto} - pontuação ${total1}`)
+
+   console.log(`Computador - cartas: ${computador[0].texto} - pontuação ${total2}`)
+
+   pergunta = confirm(`Suas cartas são ${usuario[0].texto} ${usuario[1].texto}. A carta revelada do computador é ${computador[0].texto}. \n Deseja comprar mais uma carta?`)
+
+   batatinha = true
 
    //esse while é para fazer o pedir cartas novas conforme o usuário esteja insatisfeito
       while(pergunta){
@@ -43,11 +57,43 @@ let total2 = 0
             ultimoUsuario = usuario[usuario.length -1]
 
             total1 = total1 + ultimoUsuario.valor
+          
+
+            if(total1 >= venceu){
+
+               alert(`Suas cartas são ${usuario[0].texto} ${usuario[1].texto} ${usuario[usuario.length -1].texto}. Sua pontuação é ${total1}. \n As cartas do computador são ${computador[0].texto} ${computador[1].texto}. A pontuação do computador é ${total2}. \n O computador ganhou!`)
+
+               continuar = false
+
+            } else if (pergunta === true) {
+
+               pergunta = confirm(`Suas cartas são ${usuario[0].texto} ${usuario[1].texto} ${usuario[usuario.length -1].texto}. A carta revelada do computador é ${computador[0].texto}. \n Deseja comprar mais uma carta?`)
+
+            } else if (pergunta === false){
+
+               while(batatinha){
+
+                  computador.push(comprarCarta())
+
+                  ultimoComputador = usuario[usuario.length -1]
+
+                  total2 = total2 + ultimoComputador.valor
+
+                  if (total2 < venceu && total2 > total1){
+
+                     alert(`Suas cartas são ${usuario[0].texto} ${usuario[1].texto} ${usuario[usuario.length -1].texto}. Sua pontuação é ${total1}. \n As cartas do computador são ${computador[0].texto} ${computador[1].texto} ${computador[computador.length -1].texto}. A pontuação do computador é ${total2}. \n O computador ganhou!`)
+
+                  } else if(total2 > venceu){
+                     
+                     alert(`Suas cartas são ${usuario[0].texto} ${usuario[1].texto} ${usuario[usuario.length -1].texto}. Sua pontuação é ${total1}. \n As cartas do computador são ${computador[0].texto} ${computador[1].texto} ${computador[computador.length -1].texto}. A pontuação do computador é ${total2}. \n O usuario ganhou!`)
+                 
+                  }
+
+               }
+
+            }
+
             
-            console.log(usuario)
-            console.log(total1)
-         
-            pergunta = confirm("Quer comprar mais uma carta?")
 
          }
 
