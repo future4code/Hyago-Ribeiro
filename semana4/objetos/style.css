@@ -14,13 +14,31 @@
 
 input, textarea {
     width: 50%;
+    margin-top: 4px;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 8px 143px;
+    border: none;
+    background-color: green;
+    color: #fff;
+    border-radius: 6px;
+}
+
+label {
+    margin-top: 15px;
+}
+
+textarea {
+    height: 150px;
 }
 
 .borda {
 
     border-bottom: solid 1px #c4c4c4;
     margin-top: 30px;
-    width: 50vw;
 
 }
 
@@ -42,4 +60,39 @@ input, textarea {
 
 .texto-post {
     margin-top: 10px;
+}
+
+.foto {
+    margin-top: 15px;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+}
+
+.foto img{
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+
+    #formulario{
+        width: 100%;
+    }
+
+    input, textarea {
+        width: 85vw;
+    }
+
+    input {
+        height: 40px;
+    }
+
+    button{
+        padding: 15px 135px;
+    }
+
+    #local-post {
+        width: 85vw;
+    }
+
 }

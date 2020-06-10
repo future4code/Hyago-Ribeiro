@@ -49,7 +49,7 @@ function postarImagem(evento){
     if ((linkImagem.includes(".jpeg")) || (linkImagem.includes(".jpg")) || linkImagem.includes(".png")) {
 
         let digitarPost = document.getElementById("local-post")
-        digitarPost.innerHTML += `<img class="foto" src="${linkImagem}">`
+        digitarPost.innerHTML += `<div class="foto"><img src="${linkImagem}">`
 
     } else if(linkImagem === ""){
 
