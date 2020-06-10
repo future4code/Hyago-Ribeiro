@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <header class="container">
+
+        <label for="add-task">Nova Tarefa:</label>
+        <input type="text" name="add-task" id="addTask">
+        <select name="diaSemana" id="diaSemana">
+            <option value="segunda">Segunda-Feira</option>
+            <option value="terca">Terça-Feira</option>
+            <option value="quarta">Quarta-Feira</option>
+            <option value="quinta">Quinta-Feira</option>
+            <option value="sexta">Sexta-Feira</option>
+            <option value="sabado">Sábado</option>
+            <option value="domingo">Domingo</option>
+        </select>
+        <button onclick="novaTarefa()">Criar tarefa!</button>
+
+    </header>
+    
+    <main>
+
+        <div class="comum">
+            <p>Segunda</p>
+            <ul id="segunda"></ul>
+        </div>
+        <div class="comum">
+            <p>Terça</p>
+            <ul id="terca"></ul>
+        </div>
+        <div class="quarta comum">
+            <p>Quarta</p>
+            <ul id="quarta"></ul>
+        </div>
+        <div class="comum">
+            <p>Quinta</p>
+            <ul id="quinta"></ul>
+        </div>
+        <div class="comum">
+            <p>Sexta</p>
+            <ul id="sexta"></ul>
+        </div>
+        <div class="comum">
+            <p>Sábado</p>
+            <ul id="sabado"></ul>
+        </div>
+        <div class="comum">
+            <p>Domingo</p>
+            <ul id="domingo"></ul>
+        </div>
+
+    </main>
+
+</body>
+</html>
