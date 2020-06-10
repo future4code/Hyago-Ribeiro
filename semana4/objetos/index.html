@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -18,6 +18,9 @@
 
         <label for="texto">Texto</label>
         <textarea type="text" name="texto" id="texto"></textarea>
+
+        <label for="imagem">Imagem</label>
+        <input type="text" name="imagem" id="imagem">
 
         <button id="criar-post" onclick="adicionarDados(event)">Criar post</button>
 

@@ -25,6 +25,10 @@ function adicionarDados() {
 
     criarPost()
 
+    postarImagem()
+
+    criarEspaço()
+
     meuTitulo.value = ""
     meuAutor.value = ""
     meuTexto.value = ""
@@ -33,8 +37,37 @@ function adicionarDados() {
 function criarPost(){
 
     let digitarPost = document.getElementById("local-post")
-    digitarPost.innerHTML += `<h1>${arrayDados[arrayDados.length -1].titulo}</h1> \n <h4>${arrayDados[arrayDados.length -1].autor}</h4> \n <p>${arrayDados[arrayDados.length -1].conteudo}</p>`
+    digitarPost.innerHTML += `<h1 class="titulo-post">${arrayDados[arrayDados.length -1].titulo}</h1> \n <h4 class="autor-post">${arrayDados[arrayDados.length -1].autor}</h4> \n <p class="texto-post">${arrayDados[arrayDados.length -1].conteudo}</p>`
 
 }
 
-console.log(arrayDados)
+function postarImagem(evento){
+
+    let minhaImagem = document.getElementById("imagem")
+    let linkImagem = minhaImagem.value
+    
+    if ((linkImagem.includes(".jpeg")) || (linkImagem.includes(".jpg")) || linkImagem.includes(".png")) {
+
+        let digitarPost = document.getElementById("local-post")
+        digitarPost.innerHTML += `<img class="foto" src="${linkImagem}">`
+
+    } else if(linkImagem === ""){
+
+    }
+    
+    else{
+        alert("O campo imagem não foi preenchido corretamente")
+    }
+
+
+    minhaImagem.value = ""
+
+}
+
+
+function criarEspaço() {
+
+    let digitarPost = document.getElementById("local-post")
+        digitarPost.innerHTML += `<div class="borda"></div>`
+
+}

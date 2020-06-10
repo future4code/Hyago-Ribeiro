@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+#formulario {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+input, textarea {
+    width: 50%;
+}
+
+.borda {
+
+    border-bottom: solid 1px #c4c4c4;
+    margin-top: 30px;
+    width: 50vw;
+
+}
+
+#local-post {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.titulo-post {
+    
+    margin-top: 40px;
+}
+
+.autor-post {
+    margin-top: 5px;
+}
+
+.texto-post {
+    margin-top: 10px;
+}
