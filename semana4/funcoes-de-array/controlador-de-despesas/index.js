@@ -6,6 +6,8 @@ let arrayDespesas = []
 function inserirDespesas() {
 
 
+    let extrato = document.getElementById("extrato")
+    extrato.innerHTML = ""
     
     let valor = document.getElementById("valor")
     valorDespesa = valor.value
@@ -18,6 +20,7 @@ function inserirDespesas() {
 
     if(valorDespesa !== "" && tipoDespesa !== "" && descricaoDespesa !== "") {
 
+
         let objDespesas = {
             
             valor: parseInt(valorDespesa),
@@ -28,6 +31,7 @@ function inserirDespesas() {
         
         arrayDespesas.push(objDespesas)
 
+
         const listaDeDespesas = document.getElementById("lista-despesas")
         listaDeDespesas.innerHTML += `<h4>Despesa</h4><p>Valor: R$${objDespesas.valor}</p> <p>Tipo: ${objDespesas.tipo}</p> <p>Descricao: ${objDespesas.descricao}</p>`
         
@@ -36,12 +40,29 @@ function inserirDespesas() {
         alert("Preencha os campos das despesas.")
 
     }
+
+    
+    valorTotal += parseInt(valor.value)
         
+    extrato.innerHTML += `${valorTotal}`
+
+    valor.value = ""
+    tipo.value = ""
+    descricao.value = ""
+
 }
     
     
     function filtrarDespesas() {
         
+        let listaDoDespesas = document.getElementById("lista-despesas")
+
+        listaDoDespesas.innerHTML = ""
+
+        let max = document.getElementById("valor-max")
+
+        let min = document.getElementById("valor-min")
+
         let valor2 = document.getElementById("valor")
         valorDespesa2 = valor2.value
 
@@ -53,47 +74,33 @@ function inserirDespesas() {
         
         let listraFiltrada = []
 
-        if(tipoDespesa2 === 'casa'){
-            
-             listaFiltrada = arrayDespesas.filter((lista, idx, array) => {
-                
-                
-                if(lista.tipo === "casa"){
-                    return true
+
+        listaFiltrada = arrayDespesas.filter((lista, idx, array) => {
+
+            return lista.tipo === tipo2.value && min.value <= lista.valor && max.value >= lista.valor
+
+        })
+
+
+        listaFiltrada.forEach((objeto, index, array) => {
                     
-                } 
-                
-            })
+                    
+                    listaDoDespesas.innerHTML += `<h4>Despesa</h4><p>Valor: R$${objeto.valor}</p> <p>Tipo: ${objeto.tipo}</p> <p>Descricao: ${objeto.descricao}</p>`
+                    
+                })
 
-            let listaDeDespesas = document.getElementById("lista-despesas")
 
-            listraFiltrada.forEach((objeto, index, array) => {
-
-            listaDeDespesas.innerHTML += `<h4>Despesa</h4><p>Valor: R$${objeto.valor}</p> <p>Tipo: ${objeto.tipo}</p> <p>Descricao: ${objeto.descricao}</p>`
-
-            })
 
         
-
-            console.log(listaFiltrada)
-            
-        } else if(tipoDespesa2 === 'viagem'){
-            
-            const listaFiltrada = arrayDespesas.filter((lista, idx, array) => {
-                
-                
-                if(lista.tipo === "viagem"){
-                    return true
-                    
-                } 
-                
-            })
-
-            console.log(listaFiltrada)
-            
-        }
-
         
 
-}
+    }
+
+    function limpar(){
+
+
+        let listaDaDespesas = document.getElementById("lista-despesas")
+        listaDaDespesas.innerHTML = ""
+
+    }
 
