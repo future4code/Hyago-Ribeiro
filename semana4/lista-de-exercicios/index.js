@@ -12,4 +12,16 @@ No final da função ela retorna a variável ValorAposInvestimento com o novo va
 Depois é declarada duas const que recebem o chamado da função investeDinheiro com dois parametros cada uma. As duas variáveis que foram declaradas, são chamas em dois console.log diferente. A primeira chamada novoMontante vai dar um retorno de 165. Já a segunda vai exibir um alert, pois não encaixa em nenhum tipo de investimento apresentado.
 
 
+3.
+Temos 3 arrays, o array numeros preenchido, array1 vazio e array2 vazio.
+O for é utilizado para percorrer todo o array numeros, e a cada iteração ele verifica se a sobra do número analisado divido por 2 é igual a 0. Se for ele empurra esse número para o array1. Se não for, ele empurra o número para o array2.
+Fora do for o codigo dá um console.log nos três arrays, para ver quantos elementos cada um tem. 
+Respectivos resultados.
+Quantidade total de números 14
+6
+8
+
+
+
+
 */
