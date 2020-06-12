@@ -161,3 +161,32 @@ e) true
 // const alerta = alertar()
 
 // console.log(alerta)
+
+
+//EXERCÍCIOS DE OBJETOS
+/* 
+ 1. Objetos são elementos presentes nas linguagens de programação que servem para armazenar caracteristicas e funções, com eles podemos nos aproximar de representar objetos do mundo real na programação. Criando objetos que tenham atributos, caractisticas e que executem funções, atividades.
+ Os arrays são como listas que utilizamos para armazenar qualquer coisa, eles aceitam valores de string, boolean, number, podemos utilizar para armazenar objetos também. 
+ Conseguimos visualizar a aplicação melhor desses elementos quando pensamos em estruturas como bancos. No qual cara cliente tem sua conta e isso é representado por um objeto, com caracteristicas como saldo e funcções como saque. No array, podemos armazenar todas essas contas, possuindo um array só de contas dos clientes que tem +50 anos. 
+
+*/
+
+//2.
+
+function criaRetangulo(lado1, lado2){
+
+    let perimetro = 2 * (lado1 + lado2)
+    let area = lado1 * lado2
+
+    return retangul = {
+        primeiroLado: lado1,
+        segundoLado: lado2,
+        perimetroObj: perimetro,
+        areaObj:area
+    }
+
+}
+
+console.log(criaRetangulo(5, 10))
+
+//3.
