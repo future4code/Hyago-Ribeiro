@@ -43,8 +43,8 @@ Exercícios de lógica de programação
 2.
 const booleano1 = true
 const booleano2 = false
-const booleano3 = true
-const booleano4 = false
+const booleano3 = !booleano2
+const booleano4 = !booleano3 
 
 a) false
 
@@ -58,14 +58,14 @@ e) true
 */
 
 //3.
-// const quantidadeDeNumerosPares = 5
+// const quantidadeDeNumerosPares = 3
 
-// let i++ = 0
+// let i = 0
 
 
-// while(i <= quantidadeDeNumerosPares) {
+// while(i < quantidadeDeNumerosPares) {
 
-//     console.log(i*2)
+//     console.log(i++*2)
 // }
 
 
@@ -191,11 +191,37 @@ e) true
 
 //3.
 
-filmao = {
-    titulo: 'akira',
-    ano: 1982,
-    diretor: 'Katsuhiro',
-    personagens: ['Shotaro', 'Tetsuo', 'Kei', 'Masaru', 'Akira', 'Nezu', 'Kai', 'Coronel']
+// filmao = {
+//     titulo: 'akira',
+//     ano: 1982,
+//     diretor: 'Katsuhiro',
+//     personagens: ['Shotaro', 'Tetsuo', 'Kei', 'Masaru', 'Akira', 'Nezu', 'Kai', 'Coronel']
 
-}
-console.log(`Venha assistir ao filme ${filmao.titulo}, de ${filmao.ano}, dirigido por ${filmao.diretor} e estrelado por ${filmao.personagens[0]}, ${filmao.personagens[1]}, ${filmao.personagens[2]}, ${filmao.personagens[3]}, ${filmao.personagens[4]}, ${filmao.personagens[5]}, ${filmao.personagens[6]}, ${filmao.personagens[7]}`)
+// }
+// console.log(`Venha assistir ao filme ${filmao.titulo}, de ${filmao.ano}, dirigido por ${filmao.diretor} e estrelado por ${filmao.personagens[0]}, ${filmao.personagens[1]}, ${filmao.personagens[2]}, ${filmao.personagens[3]}, ${filmao.personagens[4]}, ${filmao.personagens[5]}, ${filmao.personagens[6]}, ${filmao.personagens[7]}`)
+
+//4.
+// pessoa = {
+//     nome: 'pedro',
+//     idade: 30,
+//     email: 'pedrojoao@gmail.com',
+//     endereco: 'rua joao augusto, 23, brasil'
+
+// }
+
+// function anonimizarPessoa(objeto) {
+
+//     return pessoaAnonima = {
+//         nome: 'ANÔNIMO',
+//         idade: objeto.idade,
+//         email: objeto.email,
+//         endereco: objeto.endereco
+//     }
+
+// }
+
+// console.log(anonimizarPessoa(pessoa))
+
+
+//EXERCÍCIOS DE FUNÇÕES DE ARRAY
+//1.
