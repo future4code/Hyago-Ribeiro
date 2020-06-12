@@ -173,20 +173,29 @@ e) true
 
 //2.
 
-function criaRetangulo(lado1, lado2){
+// function criaRetangulo(lado1, lado2){
 
-    let perimetro = 2 * (lado1 + lado2)
-    let area = lado1 * lado2
+//     let perimetro = 2 * (lado1 + lado2)
+//     let area = lado1 * lado2
 
-    return retangul = {
-        primeiroLado: lado1,
-        segundoLado: lado2,
-        perimetroObj: perimetro,
-        areaObj:area
-    }
+//     return retangul = {
+//         primeiroLado: lado1,
+//         segundoLado: lado2,
+//         perimetroObj: perimetro,
+//         areaObj:area
+//     }
 
-}
+// }
 
-console.log(criaRetangulo(5, 10))
+// console.log(criaRetangulo(5, 10))
 
 //3.
+
+filmao = {
+    titulo: 'akira',
+    ano: 1982,
+    diretor: 'Katsuhiro',
+    personagens: ['Shotaro', 'Tetsuo', 'Kei', 'Masaru', 'Akira', 'Nezu', 'Kai', 'Coronel']
+
+}
+console.log(`Venha assistir ao filme ${filmao.titulo}, de ${filmao.ano}, dirigido por ${filmao.diretor} e estrelado por ${filmao.personagens[0]}, ${filmao.personagens[1]}, ${filmao.personagens[2]}, ${filmao.personagens[3]}, ${filmao.personagens[4]}, ${filmao.personagens[5]}, ${filmao.personagens[6]}, ${filmao.personagens[7]}`)
