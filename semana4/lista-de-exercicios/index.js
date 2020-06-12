@@ -85,3 +85,46 @@ e) true
 
 // trigonometria(10, 11, 12)
 
+
+//5.
+function qualMaior (num1, num2) {
+
+    let nume3 = 0
+
+    if(num1 > num2) {
+        console.log(`O maior é: ${num1}`)
+
+    }else{
+
+        console.log(`O maior é: ${nume2}`)
+
+    }
+
+
+    if(num1 % num2 === 0){
+        console.log(`${num1} é divisível por ${num2}`)
+    }else if(num1 % num2 !== 0){
+        console.log(`${num1} não é divisível por ${num2}`)
+    }
+
+    if(num2 % num1 === 0){
+        console.log(`${num2} é divisível por ${num1}`)
+    }else {
+        console.log(`${num2} não é divisível por ${num1}`)
+    }
+
+    if(num1 > nume3){
+
+        num3 = num1 - num2
+
+    }else {
+
+        nume3 = num2 - num1
+
+    }
+
+    console.log(`A diferença entre eles é ${num3}`)
+
+}
+
+qualMaior(50, 25)
