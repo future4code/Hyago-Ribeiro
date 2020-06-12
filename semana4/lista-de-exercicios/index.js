@@ -34,3 +34,25 @@ respectivos resultados
 1590
 
 */
+
+/*
+Exercícios de lógica de programação
+
+1.
+
+2.
+const booleano1 = true
+const booleano2 = false
+const booleano3 = true
+const booleano4 = false
+
+a) false
+
+b) false
+
+c) true
+
+d) true
+
+e) true
+*/
