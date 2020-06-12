@@ -22,6 +22,15 @@ Quantidade total de números 14
 8
 
 
+4.
+É executado um for que verifica todo o array numeros. Dentro desse for temos um código de condicionais, que verifica se o numero(que é o elemento do array) é menor que a variável numero1, se for menor, o numero1 vai receber o valor de numero.
+Depois ele verifica se numero é maior que numero2, se ele for maior, então numero2 vai receber o valor de numero.
+Por fim ele realiza um console.log de numero1 e numero2. Ele vai pegar o menor número do array e o maior número do array.
+(obrigado por esse exercícios pessoal, me fez entender melhor o passo a passo da verificação do maior e menor número)
 
+respectivos resultados
+
+-10
+1590
 
 */
