@@ -354,58 +354,88 @@ e) true
 // NaoPodemAndar(pessoasQueremAndar)
 
 //4.
-const consultas = [
-	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
-	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
-	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
-	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// const consultas = [
+// 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+// 	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+// 	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+// 	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// ]
+
+// arrayEmais =[]
+// //não canceladas
+
+// function naoCanceladas (array) {
+
+//     const naoForamCanceladas = array.filter((pessoa, index, array) => {
+
+//         if(pessoa.cancelada === false){
+
+//             if (pessoa.genero === 'masculino') {
+
+//                 arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+
+//             }else{
+//                 arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+
+//             }
+
+//         }
+
+//     })
+
+// }
+// naoCanceladas(consultas)
+
+// //canceladas
+// function Canceladas (array) {
+
+//     const ForamCanceladas = array.filter((pessoa, index, array) => {
+
+//         if(pessoa.cancelada === true){
+
+//             if (pessoa.genero === 'masculino') {
+
+//                 arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+
+//             }else{
+//                 arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+
+//             }
+
+//         }
+
+//     })
+//     console.log(arrayEmais)
+
+// }
+// Canceladas(consultas)
+
+ //5
+ const contas = [
+	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
 ]
 
-arrayEmais =[]
-//não canceladas
+function resultadoContas(array) {
 
-function naoCanceladas (array) {
+    array.forEach((conta, index, array) => {
 
-    const naoForamCanceladas = array.filter((pessoa, index, array) => {
+        for (let num of conta.compras) {
 
-        if(pessoa.cancelada === false){
-
-            if (pessoa.genero === 'masculino') {
-
-                arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
-
-            }else{
-                arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
-
-            }
+            conta.saldoTotal -= num 
 
         }
 
     })
+    
+
+    console.log(array)
 
 }
-naoCanceladas(consultas)
+resultadoContas(contas)
 
-//canceladas
-function Canceladas (array) {
 
-    const ForamCanceladas = array.filter((pessoa, index, array) => {
-
-        if(pessoa.cancelada === true){
-
-            if (pessoa.genero === 'masculino') {
-
-                arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
-
-            }else{
-                arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
-
-            }
-
-        }
-
-    })
-    console.log(arrayEmais)
-
-}
-Canceladas(consultas)
