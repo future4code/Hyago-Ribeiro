@@ -248,3 +248,19 @@ function maiorDeIdade(array) {
 
 maiorDeIdade(arrayNomes)
 
+//2.
+function menorDeIdade(array) {
+
+    const menoresDeIdade = arrayNomes.filter((pessoas, index, array) => {
+
+        return pessoas.idade < 20
+
+    })
+
+    console.log(menoresDeIdade)
+
+}
+
+menorDeIdade(arrayNomes)
+
+
