@@ -280,3 +280,18 @@ function multiPorDois (array) {
 }
 
 multiPorDois(arrayDosNumeros)
+
+//b.
+function multiPorTres (array) {
+
+    const multiplicaPorTres = arrayDosNumeros.map((num, index, array) => {
+
+        return num * 3
+
+    })
+
+    console.log(multiplicaPorTres)
+
+}
+
+multiPorTres(arrayDosNumeros)
