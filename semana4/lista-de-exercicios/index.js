@@ -35,10 +35,19 @@ respectivos resultados
 
 */
 
-/*
-Exercícios de lógica de programação
+// Exercícios de lógica de programação
 
-1.
+// 1. Podemos utilizar o for, for of e forEach
+
+arrayTest = [2, 10, 20, 1, 5]
+
+for(num of arrayTest) {
+    numero = num * 2
+
+    console.log(numero)
+}
+
+/*
 
 2.
 const booleano1 = true
@@ -58,109 +67,109 @@ e) true
 */
 
 //3.
-// const quantidadeDeNumerosPares = 3
+const quantidadeDeNumerosPares = 3
 
-// let i = 0
+let i = 0
 
 
-// while(i < quantidadeDeNumerosPares) {
+while(i < quantidadeDeNumerosPares) {
 
-//     console.log(i++*2)
-// }
+    console.log(i++*2)
+}
 
 
 //4.
 
-// function trigonometria(a, b, c) {
-//     if(a === b && b === c && c === a){
-//         console.log(`Triangulo Equilátero`)
-//     } else if (a !== b && b !== c && c !== a){
-//         console.log(`Triangulo Escaleno`)
-//     } else{
-//         console.log(`Triangulo Isósceles`)
-//     }
+function trigonometria(a, b, c) {
+    if(a === b && b === c && c === a){
+        console.log(`Triangulo Equilátero`)
+    } else if (a !== b && b !== c && c !== a){
+        console.log(`Triangulo Escaleno`)
+    } else{
+        console.log(`Triangulo Isósceles`)
+    }
 
 
-// }
+}
 
-// trigonometria(10, 11, 12)
+trigonometria(10, 11, 12)
 
 
 //5.
-// function qualMaior (num1, num2) {
+function qualMaior (num1, num2) {
 
-//     let nume3 = 0
+    let nume3 = 0
 
-//     if(num1 > num2) {
-//         console.log(`O maior é: ${num1}`)
+    if(num1 > num2) {
+        console.log(`O maior é: ${num1}`)
 
-//     }else{
+    }else{
 
-//         console.log(`O maior é: ${nume2}`)
+        console.log(`O maior é: ${nume2}`)
 
-//     }
+    }
 
 
-//     if(num1 % num2 === 0){
-//         console.log(`${num1} é divisível por ${num2}`)
-//     }else if(num1 % num2 !== 0){
-//         console.log(`${num1} não é divisível por ${num2}`)
-//     }
+    if(num1 % num2 === 0){
+        console.log(`${num1} é divisível por ${num2}`)
+    }else if(num1 % num2 !== 0){
+        console.log(`${num1} não é divisível por ${num2}`)
+    }
 
-//     if(num2 % num1 === 0){
-//         console.log(`${num2} é divisível por ${num1}`)
-//     }else {
-//         console.log(`${num2} não é divisível por ${num1}`)
-//     }
+    if(num2 % num1 === 0){
+        console.log(`${num2} é divisível por ${num1}`)
+    }else {
+        console.log(`${num2} não é divisível por ${num1}`)
+    }
 
-//     if(num1 > nume3){
+    if(num1 > nume3){
 
-//         num3 = num1 - num2
+        num3 = num1 - num2
 
-//     }else {
+    }else {
 
-//         nume3 = num2 - num1
+        nume3 = num2 - num1
 
-//     }
+    }
 
-//     console.log(`A diferença entre eles é ${num3}`)
+    console.log(`A diferença entre eles é ${num3}`)
 
-// }
+}
 
-// qualMaior(50, 25)
+qualMaior(50, 25)
 
 //EXERCÍCIO DE FUNÇÕES
 //1.
 
 
-// array1 = [1, 5, 10, 2, 3, 20, 6, 30]
-// array2 =[]
+array1 = [1, 5, 10, 2, 3, 20, 6, 30]
+array2 =[]
 
 
-// function maiorMenor(array) {
-// let num = 0
+function maiorMenor(array) {
+let num = 0
 
 
-//     for(let i of array){
+    for(let i of array){
 
-//         if(i < i+1){
+        if(i < i+1){
 
-//         }
+        }
 
-//     }
+    }
 
-// }
+}
 
 
 //2.
 
-// let alertar = function(){
-//    return alert("Hello Labenu")
-// }
+let alertar = function(){
+   return alert("Hello Labenu")
+}
 
-// const alerta = alertar()
+const alerta = alertar()
 
-// console.log(alerta)
+console.log(alerta)
 
 
 //EXERCÍCIOS DE OBJETOS
@@ -173,242 +182,242 @@ e) true
 
 //2.
 
-// function criaRetangulo(lado1, lado2){
+function criaRetangulo(lado1, lado2){
 
-//     let perimetro = 2 * (lado1 + lado2)
-//     let area = lado1 * lado2
+    let perimetro = 2 * (lado1 + lado2)
+    let area = lado1 * lado2
 
-//     return retangul = {
-//         primeiroLado: lado1,
-//         segundoLado: lado2,
-//         perimetroObj: perimetro,
-//         areaObj:area
-//     }
+    return retangul = {
+        primeiroLado: lado1,
+        segundoLado: lado2,
+        perimetroObj: perimetro,
+        areaObj:area
+    }
 
-// }
+}
 
-// console.log(criaRetangulo(5, 10))
+console.log(criaRetangulo(5, 10))
 
 //3.
 
-// filmao = {
-//     titulo: 'akira',
-//     ano: 1982,
-//     diretor: 'Katsuhiro',
-//     personagens: ['Shotaro', 'Tetsuo', 'Kei', 'Masaru', 'Akira', 'Nezu', 'Kai', 'Coronel']
+filmao = {
+    titulo: 'akira',
+    ano: 1982,
+    diretor: 'Katsuhiro',
+    personagens: ['Shotaro', 'Tetsuo', 'Kei', 'Masaru', 'Akira', 'Nezu', 'Kai', 'Coronel']
 
-// }
-// console.log(`Venha assistir ao filme ${filmao.titulo}, de ${filmao.ano}, dirigido por ${filmao.diretor} e estrelado por ${filmao.personagens[0]}, ${filmao.personagens[1]}, ${filmao.personagens[2]}, ${filmao.personagens[3]}, ${filmao.personagens[4]}, ${filmao.personagens[5]}, ${filmao.personagens[6]}, ${filmao.personagens[7]}`)
+}
+console.log(`Venha assistir ao filme ${filmao.titulo}, de ${filmao.ano}, dirigido por ${filmao.diretor} e estrelado por ${filmao.personagens[0]}, ${filmao.personagens[1]}, ${filmao.personagens[2]}, ${filmao.personagens[3]}, ${filmao.personagens[4]}, ${filmao.personagens[5]}, ${filmao.personagens[6]}, ${filmao.personagens[7]}`)
 
 //4.
-// pessoa = {
-//     nome: 'pedro',
-//     idade: 30,
-//     email: 'pedrojoao@gmail.com',
-//     endereco: 'rua joao augusto, 23, brasil'
+pessoa = {
+    nome: 'pedro',
+    idade: 30,
+    email: 'pedrojoao@gmail.com',
+    endereco: 'rua joao augusto, 23, brasil'
 
-// }
+}
 
-// function anonimizarPessoa(objeto) {
+function anonimizarPessoa(objeto) {
 
-//     return pessoaAnonima = {
-//         nome: 'ANÔNIMO',
-//         idade: objeto.idade,
-//         email: objeto.email,
-//         endereco: objeto.endereco
-//     }
+    return pessoaAnonima = {
+        nome: 'ANÔNIMO',
+        idade: objeto.idade,
+        email: objeto.email,
+        endereco: objeto.endereco
+    }
 
-// }
+}
 
-// console.log(anonimizarPessoa(pessoa))
+console.log(anonimizarPessoa(pessoa))
 
 
-//EXERCÍCIOS DE FUNÇÕES DE ARRAY
+// EXERCÍCIOS DE FUNÇÕES DE ARRAY
 //1.
 
-// let arrayNomes = [
-// 	{ nome: "Pedro", idade: 20 },
-// 	{ nome: "João", idade: 10 },
-// 	{ nome: "Paula", idade: 12 },
-// 	{ nome: "Artur", idade: 89 } 
-// ]
+let arrayNomes = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
 
-// //a.
-// function maiorDeIdade(array) {
+//a.
+function maiorDeIdade(array) {
 
-//     const maioresDeIdade = arrayNomes.filter((pessoas, index, array) => {
+    const maioresDeIdade = arrayNomes.filter((pessoas, index, array) => {
 
-//         return pessoas.idade >= 20
+        return pessoas.idade >= 20
 
-//     })
+    })
 
-//     console.log(maioresDeIdade)
+    console.log(maioresDeIdade)
 
-// }
+}
 
-// maiorDeIdade(arrayNomes)
+maiorDeIdade(arrayNomes)
 
-// //b.
-// function menorDeIdade(array) {
+//b.
+function menorDeIdade(array) {
 
-//     const menoresDeIdade = arrayNomes.filter((pessoas, index, array) => {
+    const menoresDeIdade = arrayNomes.filter((pessoas, index, array) => {
 
-//         return pessoas.idade < 20
+        return pessoas.idade < 20
 
-//     })
+    })
 
-//     console.log(menoresDeIdade)
+    console.log(menoresDeIdade)
 
-// }
+}
 
-// menorDeIdade(arrayNomes)
+menorDeIdade(arrayNomes)
 
 //2.
-// const arrayDosNumeros = [1, 2, 3, 4, 5, 6]
+const arrayDosNumeros = [1, 2, 3, 4, 5, 6]
 
-// //a.
-// function multiPorDois (array) {
+//a.
+function multiPorDois (array) {
 
-//     const multiplicaPorDois = arrayDosNumeros.map((num, index, array) => {
+    const multiplicaPorDois = arrayDosNumeros.map((num, index, array) => {
 
-//         return num * 2
+        return num * 2
 
-//     })
+    })
 
-//     console.log(multiplicaPorDois)
+    console.log(multiplicaPorDois)
 
-// }
+}
 
-// multiPorDois(arrayDosNumeros)
+multiPorDois(arrayDosNumeros)
 
-// //b.
-// function multiPorTres (array) {
+//b.
+function multiPorTres (array) {
 
-//     const multiplicaPorTres = arrayDosNumeros.map((num, index, array) => {
+    const multiplicaPorTres = arrayDosNumeros.map((num, index, array) => {
 
-//          resultado = num * 3
-//          return resultado.toString()
+         resultado = num * 3
+         return resultado.toString()
 
-//     })
+    })
 
-//     console.log(multiplicaPorTres)
+    console.log(multiplicaPorTres)
 
-// }
+}
 
-// multiPorTres(arrayDosNumeros)
+multiPorTres(arrayDosNumeros)
 
-// //c
-// function ParOuImpar(array) {
+//c
+function ParOuImpar(array) {
 
-//     const numerosParOuImpar = array.map((num, index, arr) => {
+    const numerosParOuImpar = array.map((num, index, arr) => {
 
-//         if(num % 2 === 0){
-//             return `${num} é par`
-//         } else{
-//             return `${num} é impar`
-//         }
+        if(num % 2 === 0){
+            return `${num} é par`
+        } else{
+            return `${num} é impar`
+        }
 
 
-//     })
+    })
 
-//     console.log(numerosParOuImpar)
+    console.log(numerosParOuImpar)
 
-// }
+}
 
-// ParOuImpar(arrayDosNumeros)
+ParOuImpar(arrayDosNumeros)
 
 //3.
-// const pessoasQueremAndar = [
-// 	{ nome: "Paula", idade: 12, altura: 1.8},
-// 	{ nome: "João", idade: 20, altura: 1.3},
-// 	{ nome: "Pedro", idade: 15, altura: 1.9},
-// 	{ nome: "Luciano", idade: 22, altura: 1.8},
-// 	{ nome: "Artur", idade: 10, altura: 1.2},
-// 	{ nome: "Soter", idade: 70, altura: 1.9}
-// ]
+const pessoasQueremAndar = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
 
-// //a.
-// function podemAndar(array) {
+//a.
+function podemAndar(array) {
 
-//     const EssesPodemAndar = array.filter((pessoa, index, array) => {
+    const EssesPodemAndar = array.filter((pessoa, index, array) => {
 
-//         return pessoa.idade >= 14 && pessoa.idade < 70 && pessoa.altura >= 1.5
+        return pessoa.idade >= 14 && pessoa.idade < 70 && pessoa.altura >= 1.5
 
-//     })
+    })
 
-//     console.log(EssesPodemAndar)
-// }
-// podemAndar(pessoasQueremAndar)
+    console.log(EssesPodemAndar)
+}
+podemAndar(pessoasQueremAndar)
 
-// //b.
-// function NaoPodemAndar(array) {
+//b.
+function NaoPodemAndar(array) {
 
-//     const EssesNaoPodemAndar = array.filter((pessoa, index, array) => {
+    const EssesNaoPodemAndar = array.filter((pessoa, index, array) => {
 
-//         return pessoa.idade < 14 || pessoa.altura < 1.5 || pessoa.idade >= 70 
+        return pessoa.idade < 14 || pessoa.altura < 1.5 || pessoa.idade >= 70 
 
-//     })
+    })
 
-//     console.log(EssesNaoPodemAndar)
-// }
-// NaoPodemAndar(pessoasQueremAndar)
+    console.log(EssesNaoPodemAndar)
+}
+NaoPodemAndar(pessoasQueremAndar)
 
 //4.
-// const consultas = [
-// 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
-// 	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
-// 	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
-// 	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
-// ]
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
 
-// arrayEmais =[]
-// //não canceladas
+arrayEmais =[]
+//não canceladas
 
-// function naoCanceladas (array) {
+function naoCanceladas (array) {
 
-//     const naoForamCanceladas = array.filter((pessoa, index, array) => {
+    const naoForamCanceladas = array.filter((pessoa, index, array) => {
 
-//         if(pessoa.cancelada === false){
+        if(pessoa.cancelada === false){
 
-//             if (pessoa.genero === 'masculino') {
+            if (pessoa.genero === 'masculino') {
 
-//                 arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+                arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
 
-//             }else{
-//                 arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+            }else{
+                arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
 
-//             }
+            }
 
-//         }
+        }
 
-//     })
+    })
 
-// }
-// naoCanceladas(consultas)
+}
+naoCanceladas(consultas)
 
 // //canceladas
-// function Canceladas (array) {
+function Canceladas (array) {
 
-//     const ForamCanceladas = array.filter((pessoa, index, array) => {
+    const ForamCanceladas = array.filter((pessoa, index, array) => {
 
-//         if(pessoa.cancelada === true){
+        if(pessoa.cancelada === true){
 
-//             if (pessoa.genero === 'masculino') {
+            if (pessoa.genero === 'masculino') {
 
-//                 arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+                arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
 
-//             }else{
-//                 arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+            }else{
+                arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
 
-//             }
+            }
 
-//         }
+        }
 
-//     })
-//     console.log(arrayEmais)
+    })
+    console.log(arrayEmais)
 
-// }
-// Canceladas(consultas)
+}
+Canceladas(consultas)
 
  //5
  const contas = [
