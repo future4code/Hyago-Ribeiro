@@ -318,37 +318,94 @@ e) true
 // ParOuImpar(arrayDosNumeros)
 
 //3.
-const pessoasQueremAndar = [
-	{ nome: "Paula", idade: 12, altura: 1.8},
-	{ nome: "João", idade: 20, altura: 1.3},
-	{ nome: "Pedro", idade: 15, altura: 1.9},
-	{ nome: "Luciano", idade: 22, altura: 1.8},
-	{ nome: "Artur", idade: 10, altura: 1.2},
-	{ nome: "Soter", idade: 70, altura: 1.9}
+// const pessoasQueremAndar = [
+// 	{ nome: "Paula", idade: 12, altura: 1.8},
+// 	{ nome: "João", idade: 20, altura: 1.3},
+// 	{ nome: "Pedro", idade: 15, altura: 1.9},
+// 	{ nome: "Luciano", idade: 22, altura: 1.8},
+// 	{ nome: "Artur", idade: 10, altura: 1.2},
+// 	{ nome: "Soter", idade: 70, altura: 1.9}
+// ]
+
+// //a.
+// function podemAndar(array) {
+
+//     const EssesPodemAndar = array.filter((pessoa, index, array) => {
+
+//         return pessoa.idade >= 14 && pessoa.idade < 70 && pessoa.altura >= 1.5
+
+//     })
+
+//     console.log(EssesPodemAndar)
+// }
+// podemAndar(pessoasQueremAndar)
+
+// //b.
+// function NaoPodemAndar(array) {
+
+//     const EssesNaoPodemAndar = array.filter((pessoa, index, array) => {
+
+//         return pessoa.idade < 14 || pessoa.altura < 1.5 || pessoa.idade >= 70 
+
+//     })
+
+//     console.log(EssesNaoPodemAndar)
+// }
+// NaoPodemAndar(pessoasQueremAndar)
+
+//4.
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
 ]
 
-//a.
-function podemAndar(array) {
+arrayEmais =[]
+//não canceladas
 
-    const EssesPodemAndar = array.filter((pessoa, index, array) => {
+function naoCanceladas (array) {
 
-        return pessoa.idade >= 14 && pessoa.idade < 70 && pessoa.altura >= 1.5
+    const naoForamCanceladas = array.filter((pessoa, index, array) => {
+
+        if(pessoa.cancelada === false){
+
+            if (pessoa.genero === 'masculino') {
+
+                arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+
+            }else{
+                arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia ${pessoa.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+
+            }
+
+        }
 
     })
 
-    console.log(EssesPodemAndar)
 }
-podemAndar(pessoasQueremAndar)
+naoCanceladas(consultas)
 
-//b.
-function NaoPodemAndar(array) {
+//canceladas
+function Canceladas (array) {
 
-    const EssesNaoPodemAndar = array.filter((pessoa, index, array) => {
+    const ForamCanceladas = array.filter((pessoa, index, array) => {
 
-        return pessoa.idade < 14 || pessoa.altura < 1.5 || pessoa.idade >= 70 
+        if(pessoa.cancelada === true){
+
+            if (pessoa.genero === 'masculino') {
+
+                arrayEmais.push(`Olá, Sr. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+
+            }else{
+                arrayEmais.push(`Olá, Sra. ${pessoa.nome}. Infelizmente, sua consulta marcada para o dia ${pessoa.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+
+            }
+
+        }
 
     })
+    console.log(arrayEmais)
 
-    console.log(EssesNaoPodemAndar)
 }
-NaoPodemAndar(pessoasQueremAndar)
+Canceladas(consultas)
