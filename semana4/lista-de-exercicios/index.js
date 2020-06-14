@@ -225,3 +225,26 @@ e) true
 
 //EXERCÍCIOS DE FUNÇÕES DE ARRAY
 //1.
+
+let arrayNomes = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+//a.
+function maiorDeIdade(array) {
+
+    const maioresDeIdade = arrayNomes.filter((pessoas, index, array) => {
+
+        return pessoas.idade >= 20
+
+    })
+
+    console.log(maioresDeIdade)
+
+}
+
+maiorDeIdade(arrayNomes)
+
