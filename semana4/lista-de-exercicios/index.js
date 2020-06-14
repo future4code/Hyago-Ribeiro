@@ -226,41 +226,57 @@ e) true
 //EXERCÍCIOS DE FUNÇÕES DE ARRAY
 //1.
 
-let arrayNomes = [
-	{ nome: "Pedro", idade: 20 },
-	{ nome: "João", idade: 10 },
-	{ nome: "Paula", idade: 12 },
-	{ nome: "Artur", idade: 89 } 
-]
+// let arrayNomes = [
+// 	{ nome: "Pedro", idade: 20 },
+// 	{ nome: "João", idade: 10 },
+// 	{ nome: "Paula", idade: 12 },
+// 	{ nome: "Artur", idade: 89 } 
+// ]
 
-//a.
-function maiorDeIdade(array) {
+// //a.
+// function maiorDeIdade(array) {
 
-    const maioresDeIdade = arrayNomes.filter((pessoas, index, array) => {
+//     const maioresDeIdade = arrayNomes.filter((pessoas, index, array) => {
 
-        return pessoas.idade >= 20
+//         return pessoas.idade >= 20
 
-    })
+//     })
 
-    console.log(maioresDeIdade)
+//     console.log(maioresDeIdade)
 
-}
+// }
 
-maiorDeIdade(arrayNomes)
+// maiorDeIdade(arrayNomes)
+
+// //b.
+// function menorDeIdade(array) {
+
+//     const menoresDeIdade = arrayNomes.filter((pessoas, index, array) => {
+
+//         return pessoas.idade < 20
+
+//     })
+
+//     console.log(menoresDeIdade)
+
+// }
+
+// menorDeIdade(arrayNomes)
 
 //2.
-function menorDeIdade(array) {
+const arrayDosNumeros = [1, 2, 3, 4, 5, 6]
 
-    const menoresDeIdade = arrayNomes.filter((pessoas, index, array) => {
+//a.
+function multiPorDois (array) {
 
-        return pessoas.idade < 20
+    const multiplicaPorDois = arrayDosNumeros.map((num, index, array) => {
+
+        return num * 2
 
     })
 
-    console.log(menoresDeIdade)
+    console.log(multiplicaPorDois)
 
 }
 
-menorDeIdade(arrayNomes)
-
-
+multiPorDois(arrayDosNumeros)
