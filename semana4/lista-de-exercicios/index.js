@@ -264,55 +264,78 @@ e) true
 // menorDeIdade(arrayNomes)
 
 //2.
-const arrayDosNumeros = [1, 2, 3, 4, 5, 6]
+// const arrayDosNumeros = [1, 2, 3, 4, 5, 6]
+
+// //a.
+// function multiPorDois (array) {
+
+//     const multiplicaPorDois = arrayDosNumeros.map((num, index, array) => {
+
+//         return num * 2
+
+//     })
+
+//     console.log(multiplicaPorDois)
+
+// }
+
+// multiPorDois(arrayDosNumeros)
+
+// //b.
+// function multiPorTres (array) {
+
+//     const multiplicaPorTres = arrayDosNumeros.map((num, index, array) => {
+
+//          resultado = num * 3
+//          return resultado.toString()
+
+//     })
+
+//     console.log(multiplicaPorTres)
+
+// }
+
+// multiPorTres(arrayDosNumeros)
+
+// //c
+// function ParOuImpar(array) {
+
+//     const numerosParOuImpar = array.map((num, index, arr) => {
+
+//         if(num % 2 === 0){
+//             return `${num} é par`
+//         } else{
+//             return `${num} é impar`
+//         }
+
+
+//     })
+
+//     console.log(numerosParOuImpar)
+
+// }
+
+// ParOuImpar(arrayDosNumeros)
+
+//3.
+const pessoasQueremAndar = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
 
 //a.
-function multiPorDois (array) {
+function podemAndar(array) {
 
-    const multiplicaPorDois = arrayDosNumeros.map((num, index, array) => {
+    const EssesPodemAndar = array.filter((pessoa, index, array) => {
 
-        return num * 2
-
-    })
-
-    console.log(multiplicaPorDois)
-
-}
-
-multiPorDois(arrayDosNumeros)
-
-//b.
-function multiPorTres (array) {
-
-    const multiplicaPorTres = arrayDosNumeros.map((num, index, array) => {
-
-         resultado = num * 3
-         return resultado.toString()
+        return pessoa.idade >= 14 && pessoa.idade < 70 && pessoa.altura >= 1.5
 
     })
 
-    console.log(multiplicaPorTres)
-
+    console.log(EssesPodemAndar)
 }
-
-multiPorTres(arrayDosNumeros)
-
-//c
-function ParOuImpar(array) {
-
-    const numerosParOuImpar = array.map((num, index, arr) => {
-
-        if(num % 2 === 0){
-            return `${num} é par`
-        } else{
-            return `${num} é impar`
-        }
-
-
-    })
-
-    console.log(numerosParOuImpar)
-
-}
-
-ParOuImpar(arrayDosNumeros)
+podemAndar(pessoasQueremAndar)
