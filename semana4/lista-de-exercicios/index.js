@@ -339,3 +339,16 @@ function podemAndar(array) {
     console.log(EssesPodemAndar)
 }
 podemAndar(pessoasQueremAndar)
+
+//b.
+function NaoPodemAndar(array) {
+
+    const EssesNaoPodemAndar = array.filter((pessoa, index, array) => {
+
+        return pessoa.idade < 14 || pessoa.altura < 1.5 || pessoa.idade >= 70 
+
+    })
+
+    console.log(EssesNaoPodemAndar)
+}
+NaoPodemAndar(pessoasQueremAndar)
