@@ -286,7 +286,8 @@ function multiPorTres (array) {
 
     const multiplicaPorTres = arrayDosNumeros.map((num, index, array) => {
 
-        return num * 3
+         resultado = num * 3
+         return resultado.toString()
 
     })
 
@@ -295,3 +296,23 @@ function multiPorTres (array) {
 }
 
 multiPorTres(arrayDosNumeros)
+
+//c
+function ParOuImpar(array) {
+
+    const numerosParOuImpar = array.map((num, index, arr) => {
+
+        if(num % 2 === 0){
+            return `${num} é par`
+        } else{
+            return `${num} é impar`
+        }
+
+
+    })
+
+    console.log(numerosParOuImpar)
+
+}
+
+ParOuImpar(arrayDosNumeros)
