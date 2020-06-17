@@ -22,6 +22,18 @@ export class SecaoCompartilhar extends Component {
 		
 	}
 
+	onClickTwitter = () => {
+
+		console.log(`Foi compartilhado no Twitter com a mensagem: ${this.state.valorMensagem}`)
+		
+	}
+
+	onClickWhatsapp = () => {
+
+		console.log(`Foi compartilhado no Whatsapp com a mensagem: ${this.state.valorMensagem}`)
+		
+	}
+
 	render() {
 		return <div className={'share-container'}>
 					<input
