@@ -1,9 +1,28 @@
 import React, {Component} from 'react'
-import './SecaoCompartilhar.css'
 import facebook from '../../img/facebook.svg'
 import twitter from '../../img/twitter.svg'
 import whatsapp from '../../img/whatsapp.svg'
 import { Icone } from '../Icone/Icone'
+import styled from 'styled-components'
+
+const ContainerShare = styled.div `
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+
+`;
+
+const SocialShare = styled.div `
+	display:flex;
+	justify-content: space-around;
+	margin-top: 7px;
+`;
+
+const InputShare = styled.input `
+	width: 97%;
+	height: 30px;
+	margin-right: 5px;
+`;
 
 export class SecaoCompartilhar extends Component {
 	state = {
@@ -35,14 +54,14 @@ export class SecaoCompartilhar extends Component {
 	}
 
 	render() {
-		return <div className={'share-container'}>
-					<input
+		return <ContainerShare>
+					<InputShare
 						className={'input-share'}
 						placeholder={'Mensagem'}
 						value={this.state.valorMensagem}
 						onChange={this.onChangeMensagem}
 					/>
-					<div className={'social-share'}>
+					<SocialShare>
 						<Icone
 							icone={facebook}
 							onClickIcone={this.onClickFacebook}
@@ -57,7 +76,7 @@ export class SecaoCompartilhar extends Component {
 							icone={whatsapp}
 							onClickIcone={this.onClickWhatsapp}
 						/>
-					</div>
-		</div>
+					</SocialShare>
+		</ContainerShare>
 	}
 }
