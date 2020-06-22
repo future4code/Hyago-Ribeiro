@@ -15,6 +15,13 @@ const TextoPergunta = styled.label `
 
 const InputPergunta = styled.input `
     width: 200px;
+    padding: 5px 8px;
+    border-radius: 14px;
+    border: none;
+        &:focus {
+            border: solid 2px #d65a31;
+            outline: none;
+        }
 `;
 
 class Pergunta extends React.Component {

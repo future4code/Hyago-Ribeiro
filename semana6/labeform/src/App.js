@@ -9,14 +9,40 @@ import TerceiraPagina from './Components/TerceiraPagina.js';
 import QuartaPagina from './Components/QuartaPagina.js';
 
 
+
 const ButtonEtapas = styled.button `
   margin-top: 50px;
+  padding: 10px 50px;
+  border-radius: 20px;
+  border:none;
+  font-weight: bold;
+  background-color: #d65a31;
+  color: #eeeeee;
+  transition: 400ms;
+      &:hover {
+        background-color: #F55520;
+      }
+      &:focus {
+        outline:none;
+      }
 `;
 
 const ContainerFormulario = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+`;
+
+const Alinhamento = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #222831;
+  color: #eeeeee;
 `;
 
 class App extends React.Component {
@@ -51,10 +77,12 @@ class App extends React.Component {
 
 
     return (
-      <ContainerFormulario>
-        {renderFormPage()}
-        {this.state.etapa !== 4 ? <ButtonEtapas onClick={this.onClickEtapas}>Próxima etapa</ButtonEtapas> : ""}
-      </ContainerFormulario>
+      <Alinhamento>
+        <ContainerFormulario>
+          {renderFormPage()}
+          {this.state.etapa !== 4 ? <ButtonEtapas onClick={this.onClickEtapas}>Próxima etapa</ButtonEtapas> : ""}
+        </ContainerFormulario>
+      </Alinhamento>
     );
     
   }

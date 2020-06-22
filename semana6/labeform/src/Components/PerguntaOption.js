@@ -14,7 +14,13 @@ const TextoPergunta = styled.label `
 `;
 
 const Select = styled.select `
-
+    padding: 5px 8px;
+    border-radius: 14px;
+    border:none;
+        &:focus {
+            border: solid 2px #d65a31;
+            outline: none;
+        }
 `;
 
 const InputPergunta = styled.input `
