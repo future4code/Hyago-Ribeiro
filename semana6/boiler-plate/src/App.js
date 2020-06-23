@@ -26,10 +26,24 @@ class App extends React.Component {
     }
 
   componentDidUpdate() {
+    const saveTarefas = {
+      tarefas: this.state.tarefas,
+      inputValue: this.state.inputValue,
+      filter: this.state.filter
+    };
 
+    localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas))
   };
 
   componentDidMount() {
+
+    const tarefaString = localStorage.getItem("tarefas");
+
+    const tarefaObjeto = JSON.parse(tarefaString);
+
+    console.log(tarefaObjeto);
+
+    this.setState({tarefas: tarefaObjeto})
 
   };
 
@@ -51,8 +65,15 @@ class App extends React.Component {
 
   };
 
-  selectTarefa = (id) => {
+  removerTarefa = (id) => {
+    const arrayRemover = this.state.tarefas.filter(tarefa => {
+      return tarefa.id !== id
+    });
 
+    this.setState ({tarefas: arrayRemover})
+  }
+
+  selectTarefa = (id) => {
 
     const novoArrayDeTarefas = this.state.tarefas.map(pessoa => {
       if(pessoa.id === id){
@@ -74,7 +95,7 @@ class App extends React.Component {
   }
 
   onChangeFilter = (event) => {
-
+    this.setState ({filter: event.target.value})
   }
 
   render() {
@@ -111,6 +132,8 @@ class App extends React.Component {
           {listaFiltrada.map(tarefa => {
             return (
               <Tarefa
+                onDoubleClick={() => this.removerTarefa(tarefa.id)}
+                key={tarefa.id}
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
               >
