@@ -37,14 +37,7 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    const tarefaString = localStorage.getItem("tarefas");
-
-    const tarefaObjeto = JSON.parse(tarefaString);
-
-    console.log(tarefaObjeto);
-
-    this.setState({tarefas: tarefaObjeto})
-
+    localStorage.getItem("tarefas") && this.setState({tarefas: JSON.parse(localStorage.getItem("tarefas"))})
   };
 
   onChangeInput = (event) => {
