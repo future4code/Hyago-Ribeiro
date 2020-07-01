@@ -1,14 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
+// import Info from './Info';
+
+const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
+
+const axiosConfig = {
+    headers: {
+        Authorization: "hyago-ribeiro-turing"
+    }
+};
 
 const ButtonForUsers = styled.button `
 
 `;
 
+const ContainerUsers = styled.div `
+    margin: 0 auto;
+`;
+
+const UserLine = styled.p `
+    display: inline-block;
+`;
+
+const ButtonDeleteUser = styled.span `
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+`;
+
 class User extends React.Component {
   state = {
-      listaUsers: []
+      listaUsers: [],
+      detailUser: [],
+      componentInfo: true,
+      containerUsers: true
   }
 
   componentDidMount = () => {
@@ -17,33 +43,22 @@ class User extends React.Component {
 
   deleteUser = (userId) => {
       Axios
-        .delete(
-            `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
-            {
-                headers: {
-                    Authorization: "hyago-ribeiro-turing"
-                }
-            }
-        )
-        .then(response => {
+        .delete(`${baseUrl}/${userId}`, axiosConfig)
+        .then(() => {
             this.showAllUsers();
             alert("Usuário deletado com sucesso.");
+            
         }).catch(error => {
             console.log(error.data);
             alert("Não foi possível deletar o usuário");
-        })
+        });
+        
   }
+  
 
   showAllUsers = () => {
       Axios
-        .get(
-            "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-            {
-                headers: {
-                    Authorization: "hyago-ribeiro-turing"
-                }
-            }
-        )
+        .get(baseUrl, axiosConfig)
         .then(response => {
             this.setState({ listaUsers: response.data});
         }).catch(error => {
@@ -51,15 +66,38 @@ class User extends React.Component {
         });
   };
 
+  showInfoUser = (userId) => {
+      Axios
+        .get(`${baseUrl}/${userId}`, axiosConfig)
+        .then(response => {
+            this.setState({detailUser: response.data});
+        }).catch(error => {
+            console.log(error.data);
+        });
+  };
+
+
+    infoUser = () => {
+        this.setState({componentInfo: !this.state.componentInfo})
+        this.setState({containerUsers: !this.state.containerUsers})
+    }
+
+    rendenizaInfo = () => {
+        return <p>{this.state.detailUser.name}</p>
+    }
 
   render(){
+    console.log(this.state.detailUser)
     return (
-        <div>
+        <>
+        {this.state.containerUsers && <ContainerUsers>
             {this.state.listaUsers.map(user => {
-                return <p>{user.name} <span onClick={() => this.deleteUser(user.id)}>X</span></p>;
+                return <><UserLine onClick={() => {this.showInfoUser(user.id)}}>{user.name}</UserLine><ButtonDeleteUser onClick={() => {if(window.confirm('Quer deletar esse usuário?')) {this.deleteUser(user.id)}}}> X</ButtonDeleteUser><br/></>
             })}
-        </div>
-        
+        </ContainerUsers>}
+        {/* {this.state.componentInfo && <Info infoUsers={this.state.detailUser} voltarInfo={this.infoUser} />} */}
+        {this.rendenizaInfo()}
+        </>
     );
   }
 }

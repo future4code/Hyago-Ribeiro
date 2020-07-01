@@ -5,18 +5,45 @@ import Axios from 'axios';
 const ContainerForm = styled.div `
   max-width: 500px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  
 `;
 
 const FormData = styled.div `
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    padding: 50px;
 `;
 
 const LabelUser = styled.label `
 `;
 
 const InputUser = styled.input `
+    border-radius: 8px;
+    border: 1px solid #000;
+    margin: 10px 0;
+    padding: 0 8px;
 `;
 
 const ButtonSaveUser = styled.button `
+    margin-top: 10px;
+    width: 80px;
+    padding: 8px;
+    align-self: center;
+    border: 1px solid #000;
+    color: #fff;
+    background-color: #000;
+    border-radius: 8px;
+    transition: 300ms;
+        &:hover {
+            color: #000;
+            background-color: #fff;
+        }
+        &:focus {
+            outline: none;
+        }
 `;
 
 class Form extends React.Component {
@@ -63,10 +90,10 @@ class Form extends React.Component {
         <ContainerForm>
           <FormData>
             <LabelUser for="name">Nome:</LabelUser>
-            <InputUser onChange={this.onChangeUserName} type="text" name="name" id="name" />
+            <InputUser placeholder="Nome do usuário" onChange={this.onChangeUserName} type="text" name="name" id="name" />
 
             <LabelUser for="email">Email:</LabelUser>
-            <InputUser onChange={this.onChangeUserEmail} type="text" name="email" id="email" />
+            <InputUser placeholder="Email do usuário" onChange={this.onChangeUserEmail} type="text" name="email" id="email" />
             <ButtonSaveUser onClick={this.onClickCreateUser}>Salvar</ButtonSaveUser>
           </FormData>
         </ContainerForm>
