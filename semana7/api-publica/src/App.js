@@ -50,7 +50,7 @@ export class App extends React.Component {
 
   colectionPokemons = async () => {
     try {
-      const response = await Axios.get("https://pokeapi.co/api/v2/pokemon/?limit=151");
+      const response = await Axios.get("https://pokeapi.co/api/v2/pokemon/?limit=800");
       this.setState({pokeList: response.data.results})
     } catch (erro) {
       console.log(erro.message);

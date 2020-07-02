@@ -5,12 +5,13 @@ import Axios from 'axios';
 
 export class Type extends React.Component {
     state = {
-        pokeType: ""
+        pokeType: []
     }
 
-    componentWillReceiveProps = () => {
-      this.catchTypePokemon();
-
+    componentDidUpdate(prevProps) {
+      if(prevProps.pokeVamo !== this.props.pokeVamo) {
+        this.catchTypePokemon();
+      }
     }
 
     catchTypePokemon = async () => {
@@ -19,8 +20,7 @@ export class Type extends React.Component {
         try {
           console.log(this.props.pokeVamo)
           const response = await Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
-          this.setState({pokeType: response.data.types[0].type.name})
-          console.log(response.data.types[0].type.name)
+          this.setState({pokeType: response.data.types})
         } catch (erro) {
           console.log(erro.message);
         }
@@ -29,7 +29,15 @@ export class Type extends React.Component {
 
     render(){
         return(
-            <p>Tipo: {this.state.pokeType}</p>
+          <div>
+            <h4>Tipo:</h4>
+            <p>
+              {this.state.pokeType.map(types => {
+                return <> {types.type.name}</>
+          
+              })}
+            </p>
+          </div>
         );
     }
 }
