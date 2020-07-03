@@ -11,19 +11,28 @@ const AudioPlayer = styled.audio `
 class DetalhesPlaylist extends React.Component {  
   render() {
     return (
-        <>
-            {this.props.musicList.map(elemento => {
-                return (
-                <div>
-                <li key={elemento.id}>{elemento.name}</li>
-                <li key={elemento.id}>{elemento.artist}</li>
-                <br/>
-                <AudioPlayer src={elemento.url} controls>
-                </AudioPlayer>
-                </div>
-                    );
-            })}
-        </>
+        <div>
+            <div>
+                {this.props.musicList.map(elemento => {
+                    return (
+                    <div key={elemento.id}>
+                    <li>{elemento.name}</li>
+                    <li>{elemento.artist}</li>
+                    <br/>
+                    <AudioPlayer src={elemento.url} controls>
+                    </AudioPlayer>
+                    </div>
+                        );
+                })}
+            </div>
+            <div>
+            <label for="addmusic">Adicione uma música</label>
+            <input onChange={this.props.onChangeAddMusic} name="song" type="text" placeholder="Nome da música"  />
+            <input onChange={this.props.onChangeAddMusic} name="author" type="text" placeholder="Nome do artista/banda"  />
+            <input onChange={this.props.onChangeAddMusic} name="url" placeholder="URL da música"  />
+            <button onClick={this.props.onClickAddMusic}>Criar</button>
+            </div>
+        </div>
     );
 
   }

@@ -9,6 +9,10 @@ class App extends React.Component {
   state = {
     valorInputCriarPlaylist: "",
     componentDetalhesPlaylist: false,
+    song: "",
+    author: "",
+    url: "",
+    playlistSelecionada: "",
     playlist: [],
     musicList: []
   }
@@ -18,7 +22,12 @@ class App extends React.Component {
   }
   
   showMusics = async (musicId) => {
-    this.setState({componentDetalhesPlaylist: !this.state.componentDetalhesPlaylist})
+    this.setState(
+      {componentDetalhesPlaylist: !this.state.componentDetalhesPlaylist, playlistSelecionada: musicId}, 
+      function() {
+        console.log(this.state.playlistSelecionada);
+      }
+    );
 
     try {
       const response = await Axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${musicId}/tracks`, {
@@ -27,12 +36,12 @@ class App extends React.Component {
         }
       })
         this.setState({musicList: response.data.result.tracks})
-        console.log(this.state.musicList)
     } catch(error) {
       console.log(error.response)
     }
 
   }
+
 
   showPlaylist = async () => {
     try {
@@ -61,8 +70,33 @@ class App extends React.Component {
       }
   };
 
+  onChangeAddMusic = async (e) => {
+    const target = e.target;
+    this.setState({[target.name]: target.value})
+    console.log(this.state.song)
+  }
+
   onChangePlaylist = (e) => {
     this.setState({valorInputCriarPlaylist: e.target.value})
+  };
+
+  onClickAddMusic = async () => {
+    const body = {
+      name: this.state.song,
+      artist: this.state.author,
+      url: this.state.url
+    }
+    try {
+      const response = await Axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.playlistSelecionada}/tracks`, body, {
+        headers: {
+          Authorization: 'hyago-ribeiro-turing'
+        }
+      })
+      this.showMusics();
+      alert('Música adicionada com sucesso')
+    } catch(error) {
+      console.log(error.response)
+    }
   };
 
   clickCreatePlaylist = async () => {
@@ -90,7 +124,7 @@ class App extends React.Component {
       <div>
         <MostrarPlaylist deletarPlaylist={this.deletarPlaylist} showMusics={this.showMusics} playlist={this.state.playlist} />
         <CriarPlaylist onChangePlaylist={this.onChangePlaylist} clickCreatePlaylist={this.clickCreatePlaylist} />
-        {this.state.componentDetalhesPlaylist && <DetalhesPlaylist musicList={this.state.musicList} />}
+        {this.state.componentDetalhesPlaylist && <DetalhesPlaylist onClickAddMusic={this.onClickAddMusic} onChangeAddMusic={this.onChangeAddMusic} musicList={this.state.musicList} />}
       </div>
     );
 
