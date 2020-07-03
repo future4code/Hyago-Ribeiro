@@ -1,8 +1,18 @@
 import React from 'react'
-import './Icone.css'
+import styled from 'styled-components'
+
+
+const IconContainer = styled.div `
+	display:flex;
+`;
+
+const IconImg = styled.img `
+	margin-right: 5px;
+	max-width: 25px;
+`;
 
 export function Icone(props) {
-	return <div className={'icon-container'}>
-		<img alt={'Icone'} src={props.icone} onClick={props.onClickIcone}/>
-	</div>
+	return <IconContainer>
+		<IconImg alt={'Icone'} src={props.icone} onClick={props.onClickIcone}/>
+	</IconContainer>
 }
