@@ -1,14 +1,38 @@
 import React from 'react';
-import './App.css';
 import CriarPlaylist from './components/CriarPlaylist';
 import MostrarPlaylist from './components/MostrarPlaylist';
 import Axios from 'axios';
 import DetalhesPlaylist from './components/DetalhesPlaylist';
+import styled from 'styled-components';
+import Header from './components/Header';
+
+const ContainerApp = styled.main `
+  background-color: #21232B;
+  min-height: 90vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+`;
+
+const ButtonLibrary = styled.button `
+    margin-bottom: 8px;
+    border-radius: 8px;
+    padding: 5px 8px;
+    background-color: #21232B;
+    border: 1px solid #e53981;
+    color: #fff;
+    cursor: pointer;
+      &:focus {
+        outline:none;
+      }
+`;
 
 class App extends React.Component {
   state = {
     valorInputCriarPlaylist: "",
     componentDetalhesPlaylist: false,
+    showComponentPlaylist: false,
     song: "",
     author: "",
     url: "",
@@ -99,6 +123,10 @@ class App extends React.Component {
     }
   };
 
+  onClickShowAllPlaylists = () => {
+    this.setState({showComponentPlaylist: !this.state.showComponentPlaylist})
+  }
+
   clickCreatePlaylist = async () => {
     
     const body = {
@@ -121,11 +149,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <MostrarPlaylist deletarPlaylist={this.deletarPlaylist} showMusics={this.showMusics} playlist={this.state.playlist} />
-        <CriarPlaylist onChangePlaylist={this.onChangePlaylist} clickCreatePlaylist={this.clickCreatePlaylist} />
-        {this.state.componentDetalhesPlaylist && <DetalhesPlaylist onClickAddMusic={this.onClickAddMusic} onChangeAddMusic={this.onChangeAddMusic} musicList={this.state.musicList} />}
-      </div>
+      <>
+        <Header />
+        <ContainerApp>
+          <CriarPlaylist onChangePlaylist={this.onChangePlaylist} clickCreatePlaylist={this.clickCreatePlaylist} />
+          <ButtonLibrary onClick={this.onClickShowAllPlaylists}>Sua Biblioteca</ButtonLibrary>
+          {this.state.showComponentPlaylist && <MostrarPlaylist deletarPlaylist={this.deletarPlaylist} showMusics={this.showMusics} playlist={this.state.playlist} />}
+          {this.state.componentDetalhesPlaylist && <DetalhesPlaylist onClickAddMusic={this.onClickAddMusic} onChangeAddMusic={this.onChangeAddMusic} musicList={this.state.musicList} />}
+        </ContainerApp>
+      </>
     );
 
   }
