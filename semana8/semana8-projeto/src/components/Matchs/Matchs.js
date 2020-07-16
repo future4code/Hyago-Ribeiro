@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Initial.css';
 import axios from 'axios';
 import ProfileMatch from '../ProfileMatch/ProfileMatch';
 import styled from 'styled-components';
@@ -9,6 +10,8 @@ const ContainerMatches = styled.div `
   display:flex;
   flex-direction: column;
   justify-content:space-between;
+  overflow:auto;
+  
 `;
 
 const ClearButton = styled.button `
@@ -69,7 +72,7 @@ function Matchs() {
   },[onClickClearMatches])
 
   return (
-    <ContainerMatches>
+    <ContainerMatches className="scrollbar-primary">
         <div>
           <TitleMatch>Seus Matchs</TitleMatch>
           {matchs.map((person) => {
