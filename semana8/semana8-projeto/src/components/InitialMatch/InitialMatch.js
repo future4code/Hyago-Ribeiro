@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import ButtonsMatch from './../ButtonsMatch/ButtonsMatch';
+
 import axios from 'axios';
+
+import ButtonsMatch from './../ButtonsMatch/ButtonsMatch';
+
 import Loader from './../Loader/Loader';
 import {ContainerProfileSingle, ImagemProfileSingle, TextProfileSingle, NameAndAge, Name, Age, BioText, ContainerImg} from "./styles";
 
