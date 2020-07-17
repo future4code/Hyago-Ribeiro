@@ -10,8 +10,10 @@ function ButtonsMatch(props) {
 
   return (
     <ContainerButtons>
-      <ButtonDislike onClick={() => props.buttonDislike(choiceSwipeRed, props.singleProfile.id)}>X</ButtonDislike>
-      <ButtonLike onClick={() => props.buttonLike(choiceSwipeGreen, props.singleProfile.id)}>♥️</ButtonLike>
+      {props.singleProfile ? <ButtonDislike onClick={() => props.buttonDislike(choiceSwipeRed, props.singleProfile.id)}>X</ButtonDislike> :
+      <ButtonDislike>X</ButtonDislike>}
+      {props.singleProfile ? <ButtonLike onClick={() => props.buttonLike(choiceSwipeGreen, props.singleProfile.id)}>♥️</ButtonLike> : 
+      <ButtonLike>♥️</ButtonLike>}
     </ContainerButtons>
   );
 }

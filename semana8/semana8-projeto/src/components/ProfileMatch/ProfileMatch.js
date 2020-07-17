@@ -7,7 +7,9 @@ const CardMatchSingle = styled.div `
     padding: 5px 20px;
 `;
 
-const ImgMatchSingle = styled.img `
+const ImgMatchSingle = styled.div `
+    background-image: url(${props=>props.photo});
+    background-size:cover;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -23,7 +25,7 @@ function ProfileMatch(props) {
   
     return (
       <CardMatchSingle>
-          <ImgMatchSingle src={props.photo} />
+          <ImgMatchSingle photo={props.photo} />
           <TextMatchSingle>{props.name}</TextMatchSingle>
       </CardMatchSingle>
     );

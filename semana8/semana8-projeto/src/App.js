@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Matchs from './components/Matchs/Matchs';
 import InitialMatch from './components/InitialMatch/InitialMatch';
 import logo from './images/astromatch.png';
@@ -22,28 +22,45 @@ const ContainerMasterApp = styled.div `
   background-color: #fff;
   width: 398px;
   height: 589px;
-  border-radius: 5px;
+  border-radius: 10px;
 `;
 
 const ContainerHeader = styled.div `
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #ccc;
   width: 398px;
+  height: 60px;
 `;
 
 const Logo = styled.img `
   width: 160px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+const DivButton = styled.div `
+  margin: 15px;
 `;
 
 const ButtonChat = styled.img `
   width: 25px;
   cursor: pointer;
+  transition: 100ms;
+    :hover {
+      transform: scale(0.95);
+    }
 `;
 
 const ButtonMatch = styled.img `
   cursor: pointer;
   width: 25px;
+  transition: 100ms;
+    :hover {
+      transform: scale(0.95);
+    }
 `;
 
 
@@ -59,9 +76,14 @@ function App() {
     <Body>
       <ContainerMasterApp>
         <ContainerHeader>
-          <ButtonMatch src={matchIcon} onClick={onClickChange} />
+          <DivButton>
+            {startMatch ? <></> : <ButtonMatch src={matchIcon} onClick={onClickChange} />}
+          </DivButton>
           <Logo src={logo} />
-          <ButtonChat src={chatIcon} onClick={onClickChange} />
+          <DivButton>
+
+          {startMatch ? <ButtonChat src={chatIcon} onClick={onClickChange} /> : <></>}
+          </DivButton>
         </ContainerHeader>
           {startMatch ? <InitialMatch/> : <Matchs />}
       </ContainerMasterApp>

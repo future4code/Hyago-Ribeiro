@@ -16,6 +16,7 @@ export const ButtonDislike = styled.button `
     transform: scale(0.8);
     border: 1px solid red;
     color: red;
+    box-shadow: rgba(205, 205, 205, 0.73) 0px 0px 15px 0px;
     cursor: pointer;
     transition: 200ms;
         :hover {
@@ -37,6 +38,7 @@ export const ButtonLike = styled.button `
     border-radius: 50%;
     border: 1px solid green;
     color: green;
+    box-shadow: rgba(205, 205, 205, 0.73) 0px 0px 15px 0px;
     cursor: pointer;
     transition: 200ms;
         :hover {

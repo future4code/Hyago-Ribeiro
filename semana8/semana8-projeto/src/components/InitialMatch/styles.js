@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const ContainerProfileSingle = styled.div `
   margin: 10px 0;
@@ -6,9 +6,11 @@ export const ContainerProfileSingle = styled.div `
   height: 430px;
   position: relative;
   display: flex;
-  overflow: hidden;
   align-items: center;
   border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: rgba(117, 117, 117, 0.77) 0px 2px 10px 0px;
 `;
 
 export const ContainerImg = styled.div `

@@ -40,11 +40,14 @@ function InitialMatch(props) {
   },[])
 
   const onClickLike = (like, profileId) => {
-    choosePerson(profileId, like);
+      choosePerson(profileId, like);
+    
   }
 
   const onClickDislike = (like, profileId) => {
-    choosePerson(profileId, like);
+    if(profileId){
+      choosePerson(profileId, like);
+    }
   }
 
   return (
