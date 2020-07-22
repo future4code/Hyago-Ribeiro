@@ -5,10 +5,13 @@ import LoginPage from './../LoginPage/LoginPage';
 import CreateTripPage from './../CreateTripPage/CreateTripPage';
 import ListTripsPage from './../ListTripsPage/ListTripsPage';
 import TripDetailPage from './../TripDetailPage/TripDetailPage';
+import Header from './../Header/Header';
+
 
 function Router() {
   return (
     <BrowserRouter>
+        <Header />
         <Switch>
             <Route exact path="/" >
                 <HomePage />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
+import { primary, secondary } from '../Color/style';
 
 const ContainerHeader = styled.header `
     display: flex;
@@ -8,7 +9,7 @@ const ContainerHeader = styled.header `
     align-items: center;
     width: 100vw;
     height: 6vh;
-    background-color: #c4c4c4;
+    background-color: ${primary};
     font-weight: bold;
 
 `;
@@ -20,6 +21,7 @@ const Logo = styled.div `
 
 const ButtonLogin = styled.button `
     margin-right: 15%;
+    background-color: ${secondary}
 `;
 
 function Header() {
@@ -27,13 +29,15 @@ function Header() {
   const history = useHistory();
 
   const goToLogin = () => {
-    history.push("/login");
+    buttonHeader ? history.push("/login") : history.push("/");
+    setButtonHeader(!buttonHeader);
   }
 
   return (
     <ContainerHeader>
         <Logo>LabX</Logo>
-        <ButtonLogin onClick={goToLogin}>Login</ButtonLogin>
+        {buttonHeader ? <ButtonLogin onClick={goToLogin}>Login</ButtonLogin> :
+        <ButtonLogin onClick={goToLogin}>Logout</ButtonLogin>}
     </ContainerHeader>
   );
 }
