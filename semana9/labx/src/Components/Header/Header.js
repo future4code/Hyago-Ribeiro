@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ContainerHeader = styled.header `
@@ -22,10 +23,17 @@ const ButtonLogin = styled.button `
 `;
 
 function Header() {
+  const [buttonHeader, setButtonHeader] = useState(true)
+  const history = useHistory();
+
+  const goToLogin = () => {
+    history.push("/login");
+  }
+
   return (
     <ContainerHeader>
         <Logo>LabX</Logo>
-        <ButtonLogin>Login</ButtonLogin>
+        <ButtonLogin onClick={goToLogin}>Login</ButtonLogin>
     </ContainerHeader>
   );
 }
