@@ -6,11 +6,19 @@ const Container = styled.div `
     flex-direction: column;
 `;
 
+const TitleQuestion = styled.label `
+    margin-bottom: 5px;
+`;
+
+const InputQuestion = styled.input `
+    height: 30px;
+`;
+
 function QuestionForm(props) {
     return (
         <Container>
-            <label>{props.pergunta}</label>
-            <input placeholder={props.placeholder} id={props.id} type={props.type} />
+            <TitleQuestion>{props.pergunta}</TitleQuestion>
+            <InputQuestion value={props.value} onChange={props.onChange} placeholder={props.placeholder} id={props.id} type={props.type} />
         </Container>
     );
 }

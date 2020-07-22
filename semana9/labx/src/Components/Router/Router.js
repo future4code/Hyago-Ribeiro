@@ -6,6 +6,7 @@ import CreateTripPage from './../CreateTripPage/CreateTripPage';
 import ListTripsPage from './../ListTripsPage/ListTripsPage';
 import TripDetailPage from './../TripDetailPage/TripDetailPage';
 import Header from './../Header/Header';
+import FormPage from './../FormPage/FormPage';
 
 
 function Router() {
@@ -18,6 +19,9 @@ function Router() {
             </Route>
             <Route exact path="/login" >
                 <LoginPage />
+            </Route>
+            <Route exact path="/formulario-inscricao">
+                <FormPage />
             </Route>
             <Route exact path="/criar-viagem" >
                 <CreateTripPage />

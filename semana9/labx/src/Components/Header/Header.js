@@ -21,23 +21,40 @@ const Logo = styled.div `
 
 const ButtonLogin = styled.button `
     margin-right: 15%;
-    background-color: ${secondary}
+    background-color: #fff;
+    height: 25px;
+    width: 70px;
+    border: 1px solid #000;
+    font-family: 'Roboto';
+    font-weight: 700;
+    transition: 200ms;
+    cursor: pointer;
+      :hover {
+        background-color: ${secondary};
+      }
 `;
 
 function Header() {
   const [buttonHeader, setButtonHeader] = useState(true)
   const history = useHistory();
+  const token = window.localStorage.getItem("token");
 
   const goToLogin = () => {
     buttonHeader ? history.push("/login") : history.push("/");
     setButtonHeader(!buttonHeader);
   }
 
+  const goToLogout = () => {
+    window.localStorage.clear();
+    history.push("/login")
+
+  };
+
   return (
     <ContainerHeader>
         <Logo>LabX</Logo>
-        {buttonHeader ? <ButtonLogin onClick={goToLogin}>Login</ButtonLogin> :
-        <ButtonLogin onClick={goToLogin}>Logout</ButtonLogin>}
+        {token ? <ButtonLogin onClick={goToLogout}>Logout</ButtonLogin> : 
+        <ButtonLogin onClick={goToLogin}>Login</ButtonLogin>}
     </ContainerHeader>
   );
 }
