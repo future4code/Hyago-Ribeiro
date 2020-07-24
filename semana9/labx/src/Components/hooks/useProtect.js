@@ -23,7 +23,7 @@ const useProtect = (url, initialState, lastData) => {
       })
     }
 
-  }, [url, lastData]);
+  }, [url, lastData, history]);
 
   return data
 

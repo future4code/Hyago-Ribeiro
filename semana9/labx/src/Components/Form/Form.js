@@ -1,64 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useParams } from "react-router";
 import axios from 'axios';
 
 import { useHistory } from 'react-router-dom';
 import useForm from './../hooks/useForm';
 import Country from './../SelectCountry/SelectCountry';
-
-const ContainerForm = styled.form `
-    display:flex;
-    flex-direction: column;
-    width: 300px;
-    height: 700px;
-    justify-content: space-between;
-`;
-
-const ButtonApply = styled.button `
-    height: 35px;
-    background-color: #fff;
-    border: 1px solid #000;
-    font-family: 'Roboto';
-    font-weight: bold;
-    font-size: 16px;
-    width: 60%;
-    align-self: center;
-    cursor: pointer;
-    transition: 200ms;
-      :hover {
-        background-color: #ffe647;
-        color: #000;
-        box-shadow: 0px 0px 5px 0px rgba(255,255,255, 0.3);
-      }
-`;
-
-const TitleForm = styled.p `
-  font-size: 20px;
-  margin: 0;
-`;
-
-const InputQuestion = styled.input `
-  height: 30px;
-  margin-top: 8px;
-`;
-
-const QuestionSingle = styled.label `
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-`;
-
-const TextareaDescription = styled.textarea `
-  height: 120px;
-  margin-top: 8px;
-  resize: none;
-`;
-
-const SelectQuestion = styled.select `
-  height: 30px;
-  margin-top: 5px;
-`;
+import { ContainerForm, ButtonApply, TitleForm, InputQuestion, QuestionSingle,
+TextareaDescription, SelectQuestion } from './style';
 
 function Form(props) {
 
@@ -111,7 +59,7 @@ function Form(props) {
           1. Qual o seu nome completo?
           <InputQuestion
           required
-          pattern={"[A-Za-z]{3,}"}
+          pattern={"^.{3,}"}
           name="name" type="text"
           value={form.name}
           onChange={handleInputChange}
@@ -145,7 +93,7 @@ function Form(props) {
           4. Qual a sua profissão?
           <InputQuestion
           required
-          pattern={"[A-Za-z]{10,}"}
+          pattern={"^.{10,}"}
           name="profession"
           type="text"
           value={form.profession}

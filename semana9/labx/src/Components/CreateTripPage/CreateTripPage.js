@@ -1,117 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory } from "react-router-dom";
 import useProtect from './../hooks/useProtect';
-import styled from 'styled-components';
 import axios from 'axios';
 
 import useForm from './../hooks/useForm';
-import Country from './../SelectCountry/SelectCountry';
-
 import BackgroundImage from './../../images/background-home.jpg';
-
-
-const Background = styled.main `
-  background-image: url(${props => props.BackgroundImage});
-  height: 94vh;
-  background-size: cover;
-  box-sizing: border-box;
-  color: #fff;
-  align-items: center;
-`;
-
-const Overlay = styled.div `
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.65);
-`;
-
-const ContainerCreateTrip = styled.div `
-  height: 80vh;
-  background-color: rgba(0, 0, 0, 0);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  padding: 10px 50px;
-  
-`;
-
-const ButtonBack = styled.button `
-    width: 150px;
-    align-self: start;
-    margin: 15px 0 0 50px;
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0);
-    color: #fff;
-    border: 1px solid #fff;
-    font-family: 'Roboto';
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 200ms;
-      :hover {
-        background-color: #ffe647;
-        border: 1px solid #000;
-        color: #000;
-        box-shadow: 0px 0px 5px 0px rgba(255,255,255, 0.3);
-      }
-`;
-
-const ContainerForm = styled.form `
-    display:flex;
-    flex-direction: column;
-    width: 300px;
-    height: 700px;
-    justify-content: space-between;
-`;
-
-const ButtonApply = styled.button `
-    height: 35px;
-    background-color: #fff;
-    border: 1px solid #000;
-    font-family: 'Roboto';
-    font-weight: bold;
-    font-size: 16px;
-    width: 60%;
-    align-self: center;
-    cursor: pointer;
-    transition: 200ms;
-      :hover {
-        background-color: #000;
-        color: #fff;
-        box-shadow: 0px 0px 5px 0px rgba(255,255,255, 0.3);
-      }
-`;
-
-const TitleForm = styled.p `
-  font-size: 20px;
-  margin: 0;
-`;
-
-const InputQuestion = styled.input `
-  height: 30px;
-  margin-top: 8px;
-`;
-
-const QuestionSingle = styled.label `
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-`;
-
-const TextareaDescription = styled.textarea `
-  height: 120px;
-  margin-top: 8px;
-  resize: none;
-`;
-
-const SelectQuestion = styled.select `
-  height: 30px;
-  margin-top: 5px;
-`;
+import { Background, Overlay, ContainerCreateTrip, ButtonBack, ContainerForm, ButtonApply, TitleForm,
+InputQuestion, QuestionSingle, TextareaDescription, SelectQuestion } from './style';
 
 function CreateTripPage(props) {
   
@@ -158,7 +53,9 @@ function CreateTripPage(props) {
           }
           })
         .then(response => {
-          console.log("Criada nova viagem")
+          console.log("Nova viagem foi criada com sucesso");
+          history.push("/listar-viagem")
+          
         }).catch(erro => {
           console.log(erro.message)
         })
