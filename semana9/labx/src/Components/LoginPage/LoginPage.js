@@ -34,6 +34,7 @@ function LoginPage(props) {
       const response = await axios.post(`${baseUrl}/login`, body)
         window.localStorage.setItem("token", response.data.token);
         history.push("/listar-viagem");
+        window.location.reload();
     } catch(error) {
       console.log(error.response)
     }
