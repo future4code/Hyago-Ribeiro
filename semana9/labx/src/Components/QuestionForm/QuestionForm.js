@@ -18,7 +18,7 @@ function QuestionForm(props) {
     return (
         <Container>
             <TitleQuestion>{props.pergunta}</TitleQuestion>
-            <InputQuestion value={props.value} onChange={props.onChange} placeholder={props.placeholder} id={props.id} type={props.type} />
+            <InputQuestion required name={props.name} value={props.value} onChange={props.onChange} placeholder={props.placeholder} id={props.id} type={props.type} />
         </Container>
     );
 }

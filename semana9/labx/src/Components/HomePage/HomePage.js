@@ -61,8 +61,8 @@ function HomePage(props) {
   const [buttonForm, setButtonForm] = useState(false);
   const history = useHistory();
 
-  const goToForm = () => {
-    history.push("/formulario-inscricao")
+  const goToTrips = () => {
+    history.push("/viagens")
   }
 
 
@@ -73,8 +73,7 @@ function HomePage(props) {
           <TextGroup>
             <h1>Faça a viagem interplanetária <br/>dos seus sonhos.</h1>
             <ButtonGroup>
-              <ButtonEnter>Viagens</ButtonEnter>
-              <ButtonEnter onClick={goToForm}>Inscreva-se</ButtonEnter>
+              <ButtonEnter onClick={goToTrips}>Viagens</ButtonEnter>
             </ButtonGroup>
           </TextGroup>
         </ContainerHome>

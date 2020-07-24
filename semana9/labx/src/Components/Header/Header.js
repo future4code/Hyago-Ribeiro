@@ -15,12 +15,12 @@ const ContainerHeader = styled.header `
 `;
 
 const Logo = styled.div `
-    margin-left: 15%;
+    margin-left: 12%;
     font-size: 30px;
+    cursor: pointer;
 `;
 
 const ButtonLogin = styled.button `
-    margin-right: 15%;
     background-color: #fff;
     height: 25px;
     width: 70px;
@@ -32,6 +32,27 @@ const ButtonLogin = styled.button `
       :hover {
         background-color: ${secondary};
       }
+`;
+
+const ButtonTrips = styled.button `
+    background-color: #fff;
+    margin-right: 20px;
+    height: 25px;
+    width: 120px;
+    border: 1px solid #000;
+    font-family: 'Roboto';
+    font-weight: 700;
+    transition: 200ms;
+    cursor: pointer;
+      :hover {
+        background-color: ${secondary};
+      }
+`;
+
+const ButtonsGroup = styled.div `
+  margin-right: 12%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 function Header() {
@@ -47,14 +68,26 @@ function Header() {
   const goToLogout = () => {
     window.localStorage.clear();
     history.push("/login")
+    window.location.reload();
 
+  };
+
+  const goToHome = () => {
+    history.push("/")
+  };
+
+  const goToTrips = () => {
+    history.push("/listar-viagem")
   };
 
   return (
     <ContainerHeader>
-        <Logo>LabX</Logo>
-        {token ? <ButtonLogin onClick={goToLogout}>Logout</ButtonLogin> : 
-        <ButtonLogin onClick={goToLogin}>Login</ButtonLogin>}
+        <Logo onClick={goToHome}>LabX</Logo>
+        <ButtonsGroup>
+          {token !== null ? <ButtonTrips onClick={goToTrips}>Lista de viagens</ButtonTrips> : <></>}
+          {token !== null ? <ButtonLogin onClick={goToLogout}>Logout</ButtonLogin> : 
+          <ButtonLogin onClick={goToLogin}>Login</ButtonLogin>}
+        </ButtonsGroup>
     </ContainerHeader>
   );
 }

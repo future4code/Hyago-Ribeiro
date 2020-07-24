@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useParams } from "react-router";
+import axios from 'axios';
 
-import Question from './../QuestionForm/QuestionForm';
+import { useHistory } from 'react-router-dom';
+import useForm from './../hooks/useForm';
+import Country from './../SelectCountry/SelectCountry';
 
-const ContainerForm = styled.div `
+const ContainerForm = styled.form `
     display:flex;
     flex-direction: column;
     width: 300px;
-    height: 800px;
+    height: 700px;
     justify-content: space-between;
 `;
 
@@ -23,21 +27,32 @@ const ButtonApply = styled.button `
     cursor: pointer;
     transition: 200ms;
       :hover {
-        background-color: #000;
-        color: #fff;
+        background-color: #ffe647;
+        color: #000;
         box-shadow: 0px 0px 5px 0px rgba(255,255,255, 0.3);
       }
 `;
 
-const Question3 = styled.textarea `
-  width: 100%;
-  height: 80px;
-  margin-top: 5px;
+const TitleForm = styled.p `
+  font-size: 20px;
+  margin: 0;
 `;
 
-const Question6 = styled.div `
+const InputQuestion = styled.input `
+  height: 30px;
+  margin-top: 8px;
+`;
+
+const QuestionSingle = styled.label `
   display: flex;
   flex-direction: column;
+  font-size: 16px;
+`;
+
+const TextareaDescription = styled.textarea `
+  height: 120px;
+  margin-top: 8px;
+  resize: none;
 `;
 
 const SelectQuestion = styled.select `
@@ -45,26 +60,112 @@ const SelectQuestion = styled.select `
   margin-top: 5px;
 `;
 
-function Form() {
+function Form(props) {
+
+  const history = useHistory();
+
+  const { form, onChange } = useForm({
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: "",
+    trip: "",
+  })
+
+  const handleForm = event => {
+    event.preventDefault();
+    const body = {
+      name: form.name,
+      age: form.age,
+      applicationText: form.applicationText,
+      profession: form.profession,
+      country: form.country
+    }
+
+    axios.post(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labeX/hyago-turing/trips/${pathParams.tripId}/apply`,
+      body)
+      .then(response => {
+        alert("Sua candidatura foi efetuada com sucesso!");
+        history.push("/viagens");
+      }).catch(erro => {
+        console.log(erro.message)
+      })
+
+  };
+
+  const pathParams = useParams();
+
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+
+    onChange(name, value)
+  }
+
+
   return (
-    <ContainerForm>
-        <h2>Preencha o formulário com seus dados</h2>
-        <Question type={"text"} id={"name"} pergunta={"1. Qual o seu nome completo?"} placeholder={"Nome"} />
-        <Question type={"number"} id={"age"} pergunta={"2. Digite a sua idade"} placeholder={"Idade"} />
-        <div>
-        <label>3. Por que você merece viajar?</label>
-        <Question3 />
-        </div>
-        <Question type={"text"} id={"profession"} pergunta={"4. Sua profissão?"} placeholder={"Profissão"} />
-        <Question type={"text"} id={"country"} pergunta={"5. País onde você mora?"} placeholder={"País"} />
-        <Question6>
-          <label>6. Selecione uma viagem</label>
-          <SelectQuestion>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+    <ContainerForm onSubmit={handleForm}>
+        <TitleForm>Preencha o formulário<br/>com seus dados</TitleForm>
+        <QuestionSingle>
+          1. Qual o seu nome completo?
+          <InputQuestion
+          required
+          pattern={"[A-Za-z]{3,}"}
+          name="name" type="text"
+          value={form.name}
+          onChange={handleInputChange}
+          placeholder="Seu nome"
+          />
+        </QuestionSingle>
+        <QuestionSingle>
+          2. Digite sua idade?
+          <InputQuestion
+          required
+          min="18"
+          name="age"
+          type="number"
+          value={form.age}
+          onChange={handleInputChange}
+          placeholder="Sua idade"
+          />
+        </QuestionSingle>
+        <QuestionSingle>
+          3. Por que você merece viajar?
+          <TextareaDescription
+          required
+          pattern={"[A-Za-z]{30,}"}
+          name="applicationText"
+          value={form.applicationText}
+          onChange={handleInputChange}
+          placeholder="Escreva por que você merece fazer essa viagem"
+          />
+        </QuestionSingle>
+        <QuestionSingle>
+          4. Qual a sua profissão?
+          <InputQuestion
+          required
+          pattern={"[A-Za-z]{10,}"}
+          name="profession"
+          type="text"
+          value={form.profession}
+          onChange={handleInputChange}
+          placeholder="Escreva a sua profissão"
+          />
+        </QuestionSingle>
+        <QuestionSingle>
+          5. Qual o país que você mora?
+          <SelectQuestion
+          required
+          name="country"
+          type="text"
+          value={form.country}
+          onChange={handleInputChange}
+          >
+            <option value="">Selecione um país</option>
+            <Country />
           </SelectQuestion>
-        </Question6>
+        </QuestionSingle>
         <ButtonApply>Enviar</ButtonApply>
     </ContainerForm>
 

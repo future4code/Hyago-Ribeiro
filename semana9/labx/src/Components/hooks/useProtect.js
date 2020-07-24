@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
-const useProtect = (url, initialState) => {
+const useProtect = (url, initialState, lastData) => {
   const history = useHistory();
   const [data, setData] = useState(initialState)
 
@@ -14,13 +14,16 @@ const useProtect = (url, initialState) => {
     if (token === null) {
       history.push("/");
     } else {
-      axios.get(url).then((response) => {
-        setData(response.data.trips)
+      axios.get(url, {
+        headers: {
+          auth: token
+        }
+      }).then((response) => {
+        setData(response.data[lastData])
       })
     }
 
-
-  }, [url]);
+  }, [url, lastData]);
 
   return data
 

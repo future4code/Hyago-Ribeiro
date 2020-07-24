@@ -5,6 +5,7 @@ import LoginPage from './../LoginPage/LoginPage';
 import CreateTripPage from './../CreateTripPage/CreateTripPage';
 import ListTripsPage from './../ListTripsPage/ListTripsPage';
 import TripDetailPage from './../TripDetailPage/TripDetailPage';
+import TripListUser from './../TripListUser/TripListUser';
 import Header from './../Header/Header';
 import FormPage from './../FormPage/FormPage';
 
@@ -20,16 +21,19 @@ function Router() {
             <Route exact path="/login" >
                 <LoginPage />
             </Route>
-            <Route exact path="/formulario-inscricao">
+            <Route exact path="/formulario-inscricao/:tripId/:tripName">
                 <FormPage />
             </Route>
             <Route exact path="/criar-viagem" >
                 <CreateTripPage />
             </Route>
+            <Route exact path="/viagens">
+                <TripListUser />
+            </Route>
             <Route exact path="/listar-viagem" >
                 <ListTripsPage />
             </Route>
-            <Route exact path="/detalhes-viagem" >
+            <Route exact path="/listar-viagem/detalhes-viagem/:tripId" >
                 <TripDetailPage />
             </Route>
             <Route exact="/" >

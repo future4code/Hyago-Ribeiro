@@ -27,12 +27,25 @@ const Overlay = styled.div `
   align-items: center;
 `;
 
-const ContainerLogin = styled.div `
+const ContainerLogin = styled.form `
   width: 400px;
   height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
+`;
+
+const InsertLogin = styled.label `
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+`;
+
+const InsertInfo = styled.input `
+  width: 350px;
+  margin-top: 10px;
+  height: 30px;
 `;
 
 const ButtonLogin = styled.button `
@@ -61,7 +74,8 @@ function LoginPage(props) {
   const [password, setPassword] = useInput("");
   const history = useHistory();
 
-  const handleLoginPage = async () => {
+  const handleLoginPage = async (event) => {
+    event.preventDefault();
     try {
       const body = {
         email: email,
@@ -79,11 +93,17 @@ function LoginPage(props) {
   return (
     <Background BackgroundImage={BackgroundImage}>
       <Overlay>
-        <ContainerLogin>
+        <ContainerLogin onSubmit={handleLoginPage}>
           <h2>Login Administrador</h2>
-          <Question value={email} onChange={setEmail} pergunta={"E-mail"} placeholder={"e-mail"} type={"text"} id={"email"} />
-          <Question value={password} onChange={setPassword} pergunta={"Senha"} placeholder={"senha"} type={"password"} id={"senha"} />
-          <ButtonLogin onClick={handleLoginPage}>Entrar</ButtonLogin>
+          <InsertLogin>
+            E-mail
+          <InsertInfo  name="email" type="email" value={email} onChange={setEmail} placeholder="E-mail" />
+        </InsertLogin>
+        <InsertLogin>
+            Senha
+          <InsertInfo  name="password" type="password" value={password} onChange={setPassword} placeholder="Senha" />
+        </InsertLogin>
+          <ButtonLogin>Entrar</ButtonLogin>
         </ContainerLogin>
       </Overlay>
     </Background>
