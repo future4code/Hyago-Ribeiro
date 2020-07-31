@@ -8,18 +8,6 @@ const MenuPlanner = styled.form `
     margin-top: 25px;
     border-bottom: solid 1px #000;
     padding-bottom: 30px;
-        label{
-            margin-right: 5px;
-        };
-        input{
-            margin-right: 10px;
-        };
-        select{
-            margin-right: 10px;
-        };
-        button{
-            margin-right: 10px;
-        }
 `;
 
 const ContainerTasks = styled.main `
@@ -39,17 +27,49 @@ const TaskSingle = styled.div `
     padding: 15px;
     margin: 5px;
     font-size: 35px;
-        li{
-            margin-left: 40px;
-            font-size: 16px;
-        };
-        span{
-            font-size: 16px;
-        };
 `;
 
 const TaskLine = styled.li `
     text-decoration: ${({ completa }) => (completa ? 'line-through' : 'none')};
+    margin-left: 40px;
+    font-size: 16px;
+    list-style-type: none;
+`;
+
+const TitleInputTask = styled.label `
+    margin-right: 5px;
+`;
+
+const InputNewTask = styled.input `
+    margin-right: 10px;
+`;
+
+const TaskDay = styled.select `
+    margin-right: 10px;
+`;
+
+const SendTask = styled.button `
+    font-size: 12px;
+    margin-right: 10px;
+`;
+
+const TitleTask = styled.p `
+
+`;
+
+const TaskDelete =  styled.button `
+
+`;
+
+const Task = styled.div `
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+`;
+
+const ContainerTask = styled.ul `
+    display: flex;
+    flex-direction: column;
 `;
 
 function Planner() {
@@ -126,9 +146,9 @@ function Planner() {
   return (
     <>
         <MenuPlanner onSubmit={handlePostTask}>
-            <label htmlFor="add-task">Nova Tarefa:</label>
-            <input placeholder="Nova tarefa" onChange={handleOnChangeTaskName} value={taskName} type="text" name="add-task" />
-            <select title="days-week" onChange={handleOnChangeTaskDay} value={taskDay} name="diaSemana">
+            <TitleInputTask htmlFor="add-task">Nova Tarefa:</TitleInputTask>
+            <InputNewTask placeholder="Nova tarefa" onChange={handleOnChangeTaskName} value={taskName} type="text" name="add-task" />
+            <TaskDay title="days-week" onChange={handleOnChangeTaskDay} value={taskDay} name="diaSemana">
                 <option value="">Selecione um dia</option>
                 <option value="segunda">Segunda-Feira</option>
                 <option value="terca">Terça-Feira</option>
@@ -137,138 +157,138 @@ function Planner() {
                 <option value="sexta">Sexta-Feira</option>
                 <option value="sabado">Sábado</option>
                 <option value="domingo">Domingo</option>
-            </select>
-            <button>Criar tarefa!</button>
+            </TaskDay>
+            <SendTask>Criar tarefa!</SendTask>
 
         </MenuPlanner>
         
         <ContainerTasks>
 
             <TaskSingle>
-                <p>Segunda</p>
-                <ul>
+                <TitleTask>Segunda</TitleTask>
+                <ContainerTask>
                     {tasksList.map((task) => {
                             if(task.day === 'segunda') {
                                 return (
-                                    <>
+                                    <Task>
                                     <TaskLine
                                     key={task.id}
                                     onClick={() => handleCompleteTask(task)}
                                     completa={task.completa}>{task.text}</TaskLine>
-                                    <button title="deletar-task" onClick={() => deleteTask(task)}>X</button>
-                                    </>
+                                    <TaskDelete title="deletar-task" onClick={() => deleteTask(task)}>X</TaskDelete>
+                                    </Task>
                                 );
                             }
                     })}
-                </ul>
+                </ContainerTask>
             </TaskSingle>
             <TaskSingle>
-                <p>Terça</p>
-                <ul>
+                <TitleTask>Terça</TitleTask>
+                <ContainerTask>
                 {tasksList.map((task) => {
                             if(task.day === 'terca') {
                                 return (
-                                    <>
+                                    <Task>
                                     <TaskLine
                                     key={task.id}
                                     onClick={() => handleCompleteTask(task)}
                                     completa={task.completa}>{task.text}</TaskLine>
-                                    <button title="deletar-task" onClick={() => deleteTask(task)}>X</button>
-                                    </>
+                                    <TaskDelete title="deletar-task" onClick={() => deleteTask(task)}>X</TaskDelete>
+                                    </Task>
                                 );
                             }
                     })}
-                </ul>
+                </ContainerTask>
             </TaskSingle>
             <TaskSingle>
-                <p>Quarta</p>
-                <ul>
+                <TitleTask>Quarta</TitleTask>
+                <ContainerTask>
                 {tasksList.map((task) => {
                             if(task.day === 'quarta') {
                                 return (
-                                    <>
+                                    <Task>
                                     <TaskLine
                                     key={task.id}
                                     onClick={() => handleCompleteTask(task)}
                                     completa={task.completa}>{task.text}</TaskLine>
-                                    <button title="deletar-task" onClick={() => deleteTask(task)}>X</button>
-                                    </>
+                                    <TaskDelete title="deletar-task" onClick={() => deleteTask(task)}>X</TaskDelete>
+                                    </Task>
                                 );
                             }
                     })}
-                </ul>
+                </ContainerTask>
             </TaskSingle>
             <TaskSingle>
-                <p>Quinta</p>
-                <ul>
+                <TitleTask>Quinta</TitleTask>
+                <ContainerTask>
                 {tasksList.map((task) => {
                             if(task.day === 'quinta') {
                                 return (
-                                    <>
+                                    <Task>
                                     <TaskLine
                                     key={task.id}
                                     onClick={() => handleCompleteTask(task)}
                                     completa={task.completa}>{task.text}</TaskLine>
-                                    <button title="deletar-task" onClick={() => deleteTask(task)}>X</button>
-                                    </>
+                                    <TaskDelete title="deletar-task" onClick={() => deleteTask(task)}>X</TaskDelete>
+                                    </Task>
                                 );
                             }
                     })}
-                </ul>
+                </ContainerTask>
             </TaskSingle>
             <TaskSingle>
-                <p>Sexta</p>
-                <ul>
+                <TitleTask>Sexta</TitleTask>
+                <ContainerTask>
                 {tasksList.map((task) => {
                             if(task.day === 'sexta') {
                                 return (
-                                    <>
+                                    <Task>
                                     <TaskLine
                                     key={task.id}
                                     onClick={() => handleCompleteTask(task)}
                                     completa={task.completa}>{task.text}</TaskLine>
-                                    <button title="deletar-task" onClick={() => deleteTask(task)}>X</button>
-                                    </>
+                                    <TaskDelete title="deletar-task" onClick={() => deleteTask(task)}>X</TaskDelete>
+                                    </Task>
                                 );
                             }
                     })}
-                </ul>
+                </ContainerTask>
             </TaskSingle>
             <TaskSingle>
-                <p>Sábado</p>
-                <ul>
+                <TitleTask>Sábado</TitleTask>
+                <ContainerTask>
                 {tasksList.map((task) => {
                             if(task.day === 'sabado') {
                                 return (
-                                    <>
+                                    <Task>
                                     <TaskLine
                                     key={task.id}
                                     onClick={() => handleCompleteTask(task)}
                                     completa={task.completa}>{task.text}</TaskLine>
-                                    <button title="deletar-task" onClick={() => deleteTask(task)}>X</button>
-                                    </>
+                                    <TaskDelete title="deletar-task" onClick={() => deleteTask(task)}>X</TaskDelete>
+                                    </Task>
                                 );
                             }
                     })}
-                </ul>
+                </ContainerTask>
             </TaskSingle>
             <TaskSingle>
-                <p>Domingo</p>
-                <ul>
+                <TitleTask>Domingo</TitleTask>
+                <ContainerTask>
                 {tasksList.map((task) => {
                             if(task.day === 'domingo') {
                                 return (
-                                    <>
+                                    <Task>
                                     <TaskLine
                                     key={task.id}
                                     onClick={() => handleCompleteTask(task)}
                                     completa={task.completa}>{task.text}</TaskLine>
-                                    <button title="deletar-task" onClick={() => deleteTask(task)}>X</button>
-                                    </>
+                                    <TaskDelete title="deletar-task" onClick={() => deleteTask(task)}>X</TaskDelete>
+                                    </Task>
                                 );
                             }
                     })}
-                </ul>
+                </ContainerTask>
             </TaskSingle>
 
         </ContainerTasks>
