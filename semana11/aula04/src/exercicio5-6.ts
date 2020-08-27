@@ -2,9 +2,13 @@ import axios from 'axios';
 
 const baseUrl: string = "https://us-central1-labenu-apis.cloudfunctions.net/labenews";
 
-//Exercício 2
-//a)Utilizamos uma função que recebe parametros e gera uma promise. Com o tipo put, realizamos a criação de uma nova notícia.
+//Exercício 5
+//a)Se usassemos um forEach, as funções async não conseguiriam processar muito bem, o que acarretaria numa execução confusa e desordenada, não é recomendável o uso.
 //b)
+//Exercício 6
+//a)O promise.all faz com que todas as promises seja executas juntas, então primeiro ele executa todas e depois aguarda a resposta de todas juntas.
+//b)A principal vantagem é a de executar a função ao mesmo tempo para todos os usuários e não ficar em um "looping" enviando e recebendo.
+//c)
 type sub = {
     id: string,
     name: string,
