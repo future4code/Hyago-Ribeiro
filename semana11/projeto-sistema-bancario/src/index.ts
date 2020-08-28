@@ -18,6 +18,3 @@ export function writeToDatabase(data: any): void {
     console.log("Erro ao salvar os dados: " + error.message)
   }
 }
-
-
-console.log(readDatabase())

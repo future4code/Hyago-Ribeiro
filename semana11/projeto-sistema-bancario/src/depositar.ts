@@ -1,4 +1,3 @@
-import * as fs from 'fs'
 import {readDatabase, writeToDatabase} from './index';
 
 type extrato = {
@@ -20,17 +19,15 @@ export function depositarSaldo(nome: string, cpf: string, saldo: number): void {
         const arrayContas = readDatabase();
 
         for(let conta of arrayContas) {
-            if(nome === conta.nome && cpf === conta.cpf){
+            if(nome === conta.nome && cpf === conta.cpf && saldo > 0){
                 conta.saldo += saldo
                 console.log(`Valor depositado com sucesso!`)
-            } else {
-                console.log("Seus dados não estão cadastrados")
             }
         }
         writeToDatabase(arrayContas);
         
     } catch(error) {
-        console.log(error.menssage)
+        console.log("Seus dados estão incorretor ou o valor é inferior a 1" + error.menssage)
     }
 }
 

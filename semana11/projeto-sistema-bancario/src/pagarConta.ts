@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import {readDatabase, writeToDatabase} from './index';
 import moment from "moment";
 moment.locale("pt-br");

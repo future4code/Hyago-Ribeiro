@@ -3,7 +3,7 @@
     "nome": "Hyago",
     "cpf": "111.111.111.11",
     "idade": 23,
-    "saldo": 50,
+    "saldo": 550,
     "listaExtrato": [
       {
         "valor": 50,
@@ -35,6 +35,13 @@
     "nome": "Ribeiro",
     "cpf": "555.555.555.55",
     "nascimento": "1997-02-22T03:00:00.000Z",
+    "saldo": 0,
+    "listaExtrato": []
+  },
+  {
+    "nome": "Airton",
+    "cpf": "666.666.666.66",
+    "nascimento": "1989-04-23T03:00:00.000Z",
     "saldo": 0,
     "listaExtrato": []
   }
