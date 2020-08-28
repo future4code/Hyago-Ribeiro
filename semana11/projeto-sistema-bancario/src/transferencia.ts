@@ -1,9 +1,11 @@
 import * as fs from 'fs'
 import {readDatabase, writeToDatabase} from './index';
+import moment from "moment";
+moment.locale("pt-br");
 
 type extrato = {
     valor: number,
-    data: string,
+    data: moment.Moment,
     descricao:string
 }
 
@@ -20,13 +22,26 @@ export function transferencia(nome1: string, cpf1: string, nome2: string, cpf2: 
         const arrayContas = readDatabase();
 
         for(const conta of arrayContas) {
-            if(nome1 === conta.nome && cpf1 === conta.cpf){
+            if(nome1 === conta.nome && cpf1 === conta.cpf && conta.saldo > valor){
+                const arrayExtrato = conta.listaExtrato;
                 conta.saldo -= valor
+
+                const novoExtrato: extrato = {
+                    valor,
+                    data: moment(),
+                    descricao: `Transferência de dinheiro para ${nome2}.`
+                }
+
+                arrayExtrato.push(novoExtrato);
                 console.log(`Transferência feita com sucesso`)
+            } else {
+                console.log("Os dados estão errados ou não possuí saldo suficiente para essa transferencia.")
             }
 
             if(nome2 === conta.nome && cpf2 === conta.cpf){
                 conta.saldo += valor
+            } else {
+                console.log("Conta do destinatário não existe.")
             }
         }
         writeToDatabase(arrayContas);

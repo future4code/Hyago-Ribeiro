@@ -19,7 +19,11 @@ type conta = {
 export function pagarConta(nome: string, cpf: string, valor: number, descricao: string, data: moment.Moment): void {
     try {
         const arrayContas = readDatabase();
+        
+        // let newData: moment.Moment = moment()
 
+
+        // console.log(newData)
         for(let conta of arrayContas) {
             if(nome === conta.nome && cpf === conta.cpf){
                 const arrayExtrato = conta.listaExtrato;
@@ -28,7 +32,7 @@ export function pagarConta(nome: string, cpf: string, valor: number, descricao: 
 
                 const novoExtrato: extrato = {
                     valor,
-                    data,
+                    data: data || moment(),
                     descricao
                 }
 

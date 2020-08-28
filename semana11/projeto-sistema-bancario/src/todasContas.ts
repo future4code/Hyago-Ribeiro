@@ -12,7 +12,7 @@ type conta = {
 
 type extrato = {
     valor: number,
-    data: string,
+    data: moment.Moment,
     descricao:string
 }
 
@@ -31,7 +31,7 @@ const exibirContar = (todasContas:conta[]): void => {
                     `
                     Valor: ${extrato.valor}
                     Descrição: ${extrato.descricao}
-                    Data: ${extrato.data}
+                    Data: ${moment(extrato.data).format("DD/MM/YYYY")}
                     `
                 )
             })}

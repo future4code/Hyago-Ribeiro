@@ -2,10 +2,9 @@ import {readDatabase} from './index';
 
 type extrato = {
     valor: number,
-    data: string,
+    data: moment.Moment,
     descricao:string
 }
-
 type conta = {
     nome: string,
     cpf: string,
