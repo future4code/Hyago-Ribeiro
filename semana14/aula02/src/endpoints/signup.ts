@@ -2,6 +2,7 @@ import { Request, Response} from 'express';
 import { UserDatabase } from '../data/UserDatabase';
 import {IdGenerator} from '../services/IdGenerator';
 import { Authenticator } from '../services/Authenticator';
+import { HashManager } from '../services/HashManager';
 
 
 
@@ -28,13 +29,16 @@ export const signup = async (req: Request, res: Response) => {
   
       const idGenerator = new IdGenerator();
       const id = idGenerator.generate();
+
+      const hashManager = new HashManager();
+      const hashPassword = await hashManager.hash(userData.password);
   
       const userDatabase = new UserDatabase();
       await userDatabase.createUser(
         id,
         userData.name,
         userData.email,
-        userData.password
+        hashPassword
       );
 
       const authenticator = new Authenticator();

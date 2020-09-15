@@ -1,6 +1,7 @@
 import { Request, Response} from 'express';
 import { UserDatabase } from '../data/UserDatabase';
 import { Authenticator } from '../services/Authenticator';
+import { HashManager } from '../services/HashManager';
 
 export const getByEmail = async (req: Request, res: Response) => {
     try {
@@ -16,7 +17,13 @@ export const getByEmail = async (req: Request, res: Response) => {
         const userDatabase = new UserDatabase();
         const user = await userDatabase.getUserByEmail(userData.email);
 
-        if(user.password !== userData.password) {
+        const hashManager = new HashManager();
+        const compareResult = await hashManager.compare(
+            userData.password,
+            user.password
+        );
+
+        if(!compareResult) {
             throw new Error("Senha inválida");
         }
 
