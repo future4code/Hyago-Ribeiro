@@ -1,4 +1,5 @@
 import { Request, Response} from 'express';
+import { BaseDatabase } from '../data/BaseDatabase';
 import { UserDatabase } from '../data/UserDatabase';
 import { Authenticator } from '../services/Authenticator';
 import { HashManager } from '../services/HashManager';
@@ -28,7 +29,10 @@ export const getByEmail = async (req: Request, res: Response) => {
         }
 
         const authenticator = new Authenticator();
-        const token = authenticator.generateToken({id: user.id});
+        const token = authenticator.generateToken({
+            id: user.id,
+            role: user.role
+        });
 
         res.status(200).send({
             token
@@ -39,4 +43,6 @@ export const getByEmail = async (req: Request, res: Response) => {
             message: error.message
         })
     }
+
+    await BaseDatabase.destroyConnection()
 }

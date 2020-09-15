@@ -3,7 +3,7 @@ import { BaseDatabase } from '../data/BaseDatabase';
 import { UserDatabase } from '../data/UserDatabase';
 import { Authenticator } from '../services/Authenticator';
 
-export const getDataUser = async (req: Request, res: Response) => {
+export const deleteUser = async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization as string;
 
@@ -11,14 +11,19 @@ export const getDataUser = async (req: Request, res: Response) => {
         const authenticationData = authenticator.getData(token);
 
         if(authenticationData.role !== "ADMIN") {
-            throw new Error("Você não tem autorização.")
+            throw new Error("Você não tem autorização");
         }
 
-        const userDb = new UserDatabase();
-        const user = await userDb.getUserById(authenticationData.id);
-        res.status(200).send(user);
+        const id = req.params.id;
+
+        const userDatabase = new UserDatabase();
+        await userDatabase.deleteUser(id);
+
+        res.sendStatus(200);
     } catch (error) {
-        res.status(400).send({message: error.message});
+        res.status(400).send({
+            message: error.message
+        });
     }
     await BaseDatabase.destroyConnection()
 }

@@ -3,6 +3,7 @@ import { UserDatabase } from '../data/UserDatabase';
 import {IdGenerator} from '../services/IdGenerator';
 import { Authenticator } from '../services/Authenticator';
 import { HashManager } from '../services/HashManager';
+import { BaseDatabase } from '../data/BaseDatabase';
 
 
 
@@ -12,7 +13,8 @@ export const signup = async (req: Request, res: Response) => {
       const userData = {
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        role: req.body.role
       }
   
       if(!userData.name || !userData.password || !userData.email) {
@@ -38,11 +40,15 @@ export const signup = async (req: Request, res: Response) => {
         id,
         userData.name,
         userData.email,
-        hashPassword
+        hashPassword,
+        userData.role
       );
 
       const authenticator = new Authenticator();
-      const token = authenticator.generateToken({id});
+      const token = authenticator.generateToken({
+        id,
+        role: userData.role
+      });
   
       res.status(200).send({
         message: 'Usuário criado com sucesso',
@@ -54,4 +60,5 @@ export const signup = async (req: Request, res: Response) => {
         message: e.message
       })
     }
+    await BaseDatabase.destroyConnection()
   }

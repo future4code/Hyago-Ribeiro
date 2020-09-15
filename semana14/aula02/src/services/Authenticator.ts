@@ -1,4 +1,5 @@
 import * as jwt from 'jsonwebtoken';
+import { USER_ROLES } from '../data/UserDatabase';
 
 export class Authenticator {
 
@@ -16,11 +17,13 @@ export class Authenticator {
             process.env.JWT_KEY as string
         ) as any
         return {
-            id: data.id
+            id: data.id,
+            role: data.role
         }
     }
 }
 
 export interface AuthenticationData {
     id: string;
+    role: USER_ROLES;
   }
