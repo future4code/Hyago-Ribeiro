@@ -87,4 +87,16 @@ export class UserBusiness {
             
             return  await userDatabase.getAllUsers();
     }
+
+    public async deleteUsers(token: string, id: string): Promise<void> {
+            const authenticator = new Authenticator();
+            const user = authenticator.getData(token);
+
+            if(user.role !== "ADMIN") {
+                throw new Error("Apenas Admins podem executar essa operação!");
+            }
+
+            const userDatabase = new UserDatabase();
+            await userDatabase.deleteUser(id);
+    }
 }
